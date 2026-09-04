@@ -68,6 +68,10 @@ export function Hero() {
       </div>
 
       <div className="relative min-h-[300px] self-stretch sm:min-h-[420px] lg:col-span-6 lg:min-h-[520px]">
+        {/* The footage is a white dither on a near-black field (rgb(1,1,1)),
+            which leaves a faint rectangular seam against the page's pure
+            black. Screen blending composites that field away exactly, so only
+            the hand and eyes remain. */}
         <video
           src="/assets/hero-dither.mp4"
           autoPlay
@@ -75,7 +79,7 @@ export function Hero() {
           muted
           playsInline
           aria-hidden
-          className="absolute inset-0 block h-full w-full object-contain"
+          className="absolute inset-0 block h-full w-full object-contain mix-blend-screen"
         />
       </div>
     </section>
