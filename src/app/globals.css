@@ -135,7 +135,9 @@
 --------------------------------------------------------------------------- */
 
 @theme inline {
-  --font-display: var(--font-display);
+  /* No --font-display token here: registering one makes Tailwind generate its
+     own `font-display` utility that resolves to the fallback alone and beats
+     the custom utility below, which is what kept Moret out of the stack. */
   --color-surface: var(--surface);
   --color-hairline: var(--hairline);
   --color-dim: var(--dim);
@@ -179,12 +181,12 @@
   }
 }
 
-/* Headings use Geist, same family as body copy, separated by weight and
-   tracking rather than by a contrasting display face. */
+/* Display headings use the licensed Moret variable face from Typekit, with
+   Bodoni Moda as the fallback while it loads or if the kit is unavailable. */
 @utility font-display {
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-weight: 500;
-  letter-spacing: -0.03em;
+  font-family: "moret-variable", var(--font-bodoni), "Bodoni Moda", serif;
+  font-weight: 700;
+  font-variation-settings: "ital" 0, "wght" 700;
 }
 
 @utility shell {

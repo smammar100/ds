@@ -27,7 +27,7 @@ export function Hero() {
 
         <Reveal variant="rise" delay={0.14}>
           <form
-            className="flex max-w-[440px] flex-col gap-2 min-[380px]:flex-row"
+            className="flex max-w-[440px] flex-col gap-2 min-[360px]:flex-row"
             onSubmit={(e) => e.preventDefault()}
           >
             <Input
@@ -47,16 +47,21 @@ export function Hero() {
         </Reveal>
 
         <Reveal variant="fade" delay={0.2}>
-          <div className="flex max-w-[440px] flex-wrap items-center gap-8 pt-6">
+          {/* Two rows of two on mobile, one row of four from 640px. Each cell
+              is a fixed-height box and the logo contains within it, so the
+              relative sizing from the design survives the logos scaling down
+              when a column gets narrow. */}
+          <div className="grid grid-cols-2 items-center gap-x-6 gap-y-5 pt-6 sm:grid-cols-4">
             {pressLogos.map((logo) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={logo.alt}
-                src={logo.src}
-                alt={logo.alt}
-                style={{ height: logo.h }}
-                className="w-auto opacity-60"
-              />
+              <div key={logo.alt} className="flex h-[30px] items-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  style={{ maxHeight: logo.h }}
+                  className="w-auto max-w-full object-contain object-left opacity-60"
+                />
+              </div>
             ))}
           </div>
         </Reveal>
