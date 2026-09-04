@@ -185,8 +185,8 @@
    Bodoni Moda as the fallback while it loads or if the kit is unavailable. */
 @utility font-display {
   font-family: "moret-variable", var(--font-bodoni), "Bodoni Moda", serif;
-  font-weight: 700;
-  font-variation-settings: "ital" 0, "wght" 700;
+  font-weight: 600;
+  font-variation-settings: "ital" 0, "wght" 600;
 }
 
 @utility shell {
