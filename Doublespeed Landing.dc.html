@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>doublespeed — Automated Attention</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400..500&amp;family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/hky5sxh.css">
+<style>
+  html, body { margin:0; padding:0; background:#000; }
+  body { font-family:"Geist", system-ui, sans-serif; color:#ededed; -webkit-font-smoothing:antialiased; text-wrap:pretty; }
+  * { box-sizing:border-box; }
+  a { color:#ededed; text-decoration:none; }
+  a:hover { color:#fff; }
+  input, button, select { font-family:inherit; }
+  input::placeholder { color:#5c5c5c; }
+  input:focus, select:focus { outline:none; border-color:#ededed; }
+  ::selection { background:#ededed; color:#000; }
+  details summary::-webkit-details-marker { display:none; }
+  summary { list-style:none; cursor:pointer; }
+  h1, h2, h3 { font-variation-settings:"ital" 0, "wght" 400; }
+  @keyframes ds-dot-wave { 0%, 70%, 100% { opacity:0.25; transform:scale(0.85); } 35% { opacity:1; transform:scale(1); } }
+  .ds-dot { transform-box:fill-box; transform-origin:center; animation:ds-dot-wave 1.4s ease-in-out infinite; }
+  .ds-chevbtn { transition:transform .2s cubic-bezier(.2,.8,.2,1), border-color .2s ease; }
+  .ds-chevbtn:hover { border-color:#555; }
+  .ds-chevbtn:hover .ds-chevpanel { width:calc(100% - 8px); }
+  .ds-chevbtn:active { transform:scale(0.98); }
+  .ds-chevbtn .ds-chevlabel { transition:color .2s ease; }
+  .ds-chevbtn:hover .ds-chevlabel { color:#0a0a0a; }
+  @media (prefers-reduced-motion: reduce) { .ds-dot { animation:none; opacity:1; } }
+</style>
+<script src="./image-slot.js"></script>
+<script src="./gsap.min.js"></script>
+<script src="./ScrollTrigger.min.js"></script>
+</helmet>
+
+<div style="background:#000; min-height:100vh; padding-bottom:0">
+
+  <header style="position: sticky; top: 0; z-index: 20; background: rgba(0,0,0,0.82); backdrop-filter: blur(8px); border-bottom: 1px solid #1a1a1a; border-color: #FAF9F500">
+    <div style="max-width:1240px; margin:0 auto; padding:0 32px; height:64px; display:flex; align-items:center; justify-content:space-between; gap:24px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <img src="assets/logo-doublespeed.svg" alt="doublespeed" style="height:20px; width:auto; display:block">
+      </div>
+      <nav style="display:flex; align-items:center; gap:28px">
+        <a href="#capabilities" style="font-size:13.5px; color:#a1a1a1">Platform</a>
+        <a href="#pricing" style="font-size:13.5px; color:#a1a1a1">Pricing</a>
+        <a href="#faq" style="font-size:13.5px; color:#a1a1a1">FAQ</a>
+        <a href="#login" style="font-size:13.5px; color:#a1a1a1">Log in</a>
+        <a href="#book" style="font-size:13.5px; font-weight:500; color:#000; background:#ededed; padding:8px 16px; border-radius:4px">Book a call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section style="max-width:1240px; margin:0 auto; padding:0 32px; display:grid; grid-template-columns:repeat(12,1fr); gap:32px; align-items:end">
+      <div style="grid-column:span 6; display:flex; flex-direction:column; justify-content:center; gap:28px; padding:80px 0 0; min-height:min(760px,88vh)">
+        <h1 data-fx="hero-title" style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(52px,6.4vw,104px); line-height:0.94; letter-spacing:-0.02em">Automated Attention</h1>
+        <p data-fx="hero-copy" style="margin:0; max-width:34ch; font-size:19px; line-height:1.55; color:#a1a1a1">Scale your distribution with agentic social accounts. Hosted on real US devices, posting daily, learning from what performs.</p>
+        <form data-fx="hero-copy" style="display:flex; gap:8px; max-width:440px" onSubmit="{{ onSubmit }}">
+          <input type="email" required="required" aria-label="Work email" placeholder="you@company.com" style="flex:1; min-width:0; background:#0a0a0a; border:1px solid #262626; border-radius:4px; color:#ededed; font-size:14.5px; padding:12px 14px; outline:none">
+          <button type="submit" style="background:#ededed; color:#000; border:none; border-radius:4px; font-size:14.5px; font-weight:500; padding:12px 20px; cursor:pointer; white-space:nowrap">Free audit call</button>
+        </form>
+        <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 24px; border-top: 1px solid #1a1a1a; max-width: 440px; border-color: #FAF9F500">
+          
+          <div data-fx="press" style="display:flex; flex-wrap:nowrap; align-items:center; gap:32px">
+            <img src="assets/logo-nyt.svg" alt="The New York Times" style="height:26px; width:auto; opacity:0.62">
+            <img src="assets/logo-observer.svg" alt="The Observer" style="height:22px; width:auto; opacity:0.62">
+            <img src="assets/logo-nypost.svg" alt="New York Post" style="height:19px; width:auto; opacity:0.62">
+            <img src="assets/logo-wan.png" alt="The WAN Show" style="height:30px; width:auto; opacity:0.62">
+          </div>
+        </div>
+      </div>
+      <div data-fx="hero-media" style="grid-column:span 6; align-self:stretch; position:relative; min-height:520px">
+        <video src="assets/hero-dither.mp4" autoplay="autoplay" loop="loop" muted="muted" playsInline="{{ true }}" aria-hidden="true" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block"></video>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:120px 32px 0">
+      <div data-fx="card" style="position:relative; overflow:hidden; border-radius:12px; background:#0b0b0b; border:1px solid #1a1a1a; aspect-ratio:1420/440">
+        <video src="assets/product-demo.mp4" autoplay="autoplay" loop="loop" muted="muted" playsInline="{{ true }}" aria-label="Product walkthrough of the doublespeed terminal" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; display:block"></video>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:120px 32px 0">
+      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:40px">
+        <h2 data-fx="rise" style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; letter-spacing:-0.01em; font-size:44px; line-height:1.05">Inside a hosted account</h2>
+        <p style="margin:0; font-size:17px; line-height:1.6; color:#a1a1a1; max-width:62ch">A persona decides who posts, attention data decides what posts next, and every session behaves like ordinary device use.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px">
+        <article data-fx="card" style="background:#0b0b0b; border-radius:8px; padding:28px; display:flex; flex-direction:column; gap:16px; min-width:0">
+          <div style="display:flex; flex-direction:column; gap:10px">
+            <h3 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; letter-spacing:-0.01em; font-size:30px; line-height:1.1">Personas you can't hire</h3>
+            <p style="margin:0; font-size:15.5px; line-height:1.6; color:#a1a1a1; max-width:44ch">Build hyper-specific creators for any niche: 62-year-old mom in Phoenix, Gen-Z skater in Atlanta. Demographics you'd never find on a roster, now built on demand.</p>
+          </div>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px; flex:1">
+            <div style="flex:1; min-height:210px; display:flex; align-items:center; justify-content:center; padding:16px">
+              <img src="assets/bento-personas.webp" alt="A roster of persona figures with one highlighted, linked to a single account profile" style="max-width:100%; max-height:100%; width:auto; height:auto; display:block">
+            </div>
+            
+          </figure>
+          
+        </article>
+        <article data-fx="card" style="background:#0b0b0b; border-radius:8px; padding:28px; display:flex; flex-direction:column; gap:16px; min-width:0">
+          <div style="display:flex; flex-direction:column; gap:10px">
+            <h3 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; letter-spacing:-0.01em; font-size:30px; line-height:1.1">Attention intelligence</h3>
+            <p style="margin:0; font-size:15.5px; line-height:1.6; color:#a1a1a1; max-width:44ch">Our system analyzes what works to make the content smarter over time. The best performing content becomes the training data for what comes next.</p>
+          </div>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px; flex:1">
+            <div style="flex:1; min-height:210px; display:flex; align-items:center; justify-content:center; padding:16px">
+              <img src="assets/bento-attention.webp" alt="Grid of posts tinted by performance, stronger performers marked" style="max-width:100%; max-height:100%; width:auto; height:auto; display:block">
+            </div>
+            
+          </figure>
+          
+        </article>
+        <article data-fx="card" style="background:#0b0b0b; border-radius:8px; padding:28px; display:flex; flex-direction:column; gap:16px; min-width:0; grid-column:span 2; display:grid; grid-template-columns:1fr 1.55fr; gap:32px; align-items:start">
+          <div style="display:flex; flex-direction:column; gap:12px; min-width:0">
+            <h3 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; letter-spacing:-0.01em; font-size:30px; line-height:1.1">Control is all you need</h3>
+            <p style="margin:0; font-size:15.5px; line-height:1.6; color:#a1a1a1; max-width:42ch">Accounts scroll, swipe, comment, warm up, and engage like real users. Algorithms interact with our agentic accounts as real creators in the ecosystem.</p>
+            
+          </div>
+          <figure style="margin:0; display:flex; flex-direction:column; gap:10px; min-width:0">
+            <div style="padding:8px 0; display:flex; align-items:center; justify-content:center; min-height:300px">
+              <img src="assets/bento-control.webp" alt="An account searching its niche, browsing the feed, and posting to it" style="max-width:100%; height:auto; display:block">
+            </div>
+            
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section id="capabilities" style="position:relative; margin-top:120px">
+      <x-import component-from-global-scope="scroll-grid" from="./scroll-grid.js" count="36" hint-size="100%,90vh">
+      </x-import>
+      <div style="position:absolute; left:0; right:0; bottom:0; height:220px; background:linear-gradient(to bottom, rgba(0,0,0,0), #000); pointer-events:none; z-index:1"></div>
+      <div style="position:absolute; inset:0; z-index:2; pointer-events:none">
+        <div style="position:sticky; top:0; height:100vh; display:flex; flex-direction:column; gap:16px; align-items:center; justify-content:center; padding:0 32px; text-align:center">
+          <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(40px,7vw,96px); line-height:0.98; letter-spacing:-0.02em; max-width:20ch">An agent in every niche</h2>
+          <p style="margin:0; font-size:17px; line-height:1.6; color:#a1a1a1; max-width:52ch">Our hosted accounts interact with relevant content around your product and post daily to drive attention.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:120px 32px 0">
+      <div style="display:flex; flex-direction:column; gap:14px; max-width:640px; margin-bottom:40px">
+        <h2 data-fx="rise" style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:44px; line-height:1.05; letter-spacing:-0.01em">Everything the account needs</h2>
+        <p style="margin:0; font-size:17px; line-height:1.6; color:#a1a1a1">Define the persona, generate the content, publish it in bulk, and keep every account under your control from one place.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+        <sc-for list="{{ capabilities }}" as="cap" hint-placeholder-count="6">
+          <article data-fx="card" style="background:#0b0b0b; border-radius:10px; overflow:hidden; display:flex; flex-direction:column">
+            <div style="position:relative; aspect-ratio:16/9; overflow:hidden; background:#000">
+              <img src="{{ cap.image }}" alt="{{ cap.alt }}" style="width:100%; height:100%; object-fit:cover; display:block">
+              <div style="position:absolute; left:0; right:0; bottom:0; height:56px; background:linear-gradient(to bottom, rgba(11,11,11,0), #0b0b0b); pointer-events:none"></div>
+            </div>
+            <div style="padding:8px 24px 28px; display:flex; flex-direction:column; gap:10px">
+              
+              <h3 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:26px; line-height:1.15">{{ cap.title }}</h3>
+              <p style="margin:0; font-size:15px; line-height:1.6; color:#a1a1a1">{{ cap.body }}</p>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="pricing" style="max-width:1240px; margin:0 auto; padding:120px 32px 0">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; margin-bottom:40px">
+        <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:52px; line-height:1.02; letter-spacing:-0.01em">Three ways to run it</h2>
+        <p style="margin:0; font-size:16px; line-height:1.6; color:#a1a1a1; max-width:48ch">Start with a hosted slot and bring your own content, hand the content to an agent, or let us run the whole operation.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch">
+        <sc-for list="{{ plans }}" as="plan" hint-placeholder-count="3">
+          <div data-fx="plan" style="height:100%; border-radius:16px; padding:4px; background:linear-gradient(180deg, rgba(32,32,34,0.4), rgba(27,27,29,0.4)); box-shadow:inset 0 0 0 1px rgba(255,255,255,0.04); transition:transform 220ms cubic-bezier(0.22,0.61,0.36,1)" style-hover="transform:scale(1.035); z-index:2">
+            <div style="height:100%; box-sizing:border-box; position:relative; overflow:hidden; border-radius:13px; background:#0c0c0d; box-shadow:0 0 0 1.5px rgba(0,0,0,0.21), 0 6px 12px rgba(0,0,0,0.2); padding:32px; display:flex; flex-direction:column; gap:36px">
+              <div style="position:absolute; inset:0; overflow:hidden; border-radius:13px; pointer-events:none">
+                <div style="position:absolute; left:-90px; top:-120px; width:340px; height:280px; background:radial-gradient(50% 50% at 50% 50%, {{ plan.glow }} 0%, rgba(255,255,255,0) 100%)"></div>
+                
+                
+              </div>
+              <div style="position:relative; display:flex; flex-direction:column; gap:28px">
+                <div style="display:flex; align-items:flex-start; justify-content:space-between">
+                  <span style="width:28px; height:28px; border-radius:7px; background:linear-gradient(180deg,#3a3a3d,#232325); box-shadow:inset 0 1px 0 rgba(255,255,255,0.14), 0 0 0 1.5px rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; color:#d4d4d8"><span style="display:flex; width:14px; height:14px" dangerouslySetInnerHTML="{{ plan.glyph }}"></span></span>
+                  <sc-if value="{{ plan.badge }}" hint-placeholder-val="{{ false }}">
+                    <span style="display:flex; align-items:center; gap:6px; height:22px; padding:0 12px 0 8px; border-radius:100px; background:#272729; box-shadow:0 0 0 1.5px rgba(0,0,0,0.25), 3px 6px 12px rgba(0,0,0,0.6); font-size:11px; font-weight:500; letter-spacing:0.02em; text-transform:uppercase; color:#fff"><span style="width:12px; height:12px; background:#fff; -webkit-mask:url(assets/icon-star.svg) center/contain no-repeat; mask:url(assets/icon-star.svg) center/contain no-repeat"></span>{{ plan.badge }}</span>
+                  </sc-if>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:8px">
+                  <h3 style="margin:0; font-size:20px; font-weight:600; letter-spacing:-0.01em; color:#f6f8fa">{{ plan.name }}</h3>
+                  <p style="margin:0; min-height:44px; font-size:14.5px; line-height:1.5; color:#858585">{{ plan.who }}</p>
+                </div>
+              </div>
+              <div style="position:relative; display:flex; align-items:baseline; min-height:48px; gap:5px"><span style="font-size:{{ plan.priceSize }}; font-weight:500; letter-spacing:-0.015em; font-variant-numeric:tabular-nums">{{ plan.price }}</span><span style="font-size:17px; font-weight:500; color:#858585">{{ plan.unit }}</span></div>
+              <a href="#book" style="{{ plan.ctaStyle }}">{{ plan.cta }}</a>
+              <div style="display:flex; align-items:center; gap:11px"><span style="flex:1; height:1.5px; background:#141414; box-shadow:0 1px 1px rgba(255,255,255,0.11)"></span><span style="font-size:12px; font-weight:600; letter-spacing:-0.01em; text-transform:uppercase; color:rgba(255,255,255,0.3)">{{ plan.listLabel }}</span><span style="flex:1; height:1.5px; background:#141414; box-shadow:0 1px 1px rgba(255,255,255,0.11)"></span></div>
+              <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:18px">
+                <sc-for list="{{ plan.features }}" as="feat" hint-placeholder-count="4">
+                  <li style="display:flex; align-items:flex-start; gap:12px; font-size:15.5px; font-weight:500; line-height:1.3; letter-spacing:-0.01em; color:#fff"><span style="flex:none; width:20px; height:20px; background:#737378; -webkit-mask:url(assets/icon-check.svg) center/contain no-repeat; mask:url(assets/icon-check.svg) center/contain no-repeat"></span><span>{{ feat }}</span></li>
+                </sc-for>
+              </ul>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="book" style="max-width:1240px; margin:0 auto; padding:120px 32px 0; display:grid; grid-template-columns:repeat(12,1fr); gap:32px">
+      <div style="grid-column:span 6; min-width:0; display:flex; flex-direction:column; gap:36px; padding-right:32px">
+        <div style="display:flex; flex-direction:column; gap:14px">
+          <h2 data-fx="rise" style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:44px; line-height:1.05; letter-spacing:-0.01em">Book a call</h2>
+          <p style="margin:0; font-size:16.5px; line-height:1.6; color:#a1a1a1; max-width:40ch">Schedule a 30 minute audit. We'll map your niche and show what agentic accounts would post this week.</p>
+        </div>
+        <form onSubmit="{{ onSubmit }}" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; min-width:0">
+          <div style="display:flex; flex-direction:column; gap:8px; min-width:0"><label for="ds-name" style="font-size:13px; color:#a1a1a1">Name</label><input id="ds-name" required="required" placeholder="Your name" style="background:#000; border:1px solid #262626; border-radius:6px; color:#ededed; font-size:14.5px; padding:13px 14px; width:100%; min-width:0"></div>
+          <div style="display:flex; flex-direction:column; gap:8px; min-width:0"><label for="ds-email" style="font-size:13px; color:#a1a1a1">Work email</label><input id="ds-email" type="email" required="required" placeholder="you@company.com" style="background:#000; border:1px solid #262626; border-radius:6px; color:#ededed; font-size:14.5px; padding:13px 14px; width:100%; min-width:0"></div>
+          <div style="display:flex; flex-direction:column; gap:8px; min-width:0"><label for="ds-site" style="font-size:13px; color:#a1a1a1">Website</label><input id="ds-site" required="required" placeholder="yourproduct.com" style="background:#000; border:1px solid #262626; border-radius:6px; color:#ededed; font-size:14.5px; padding:13px 14px; width:100%; min-width:0"></div>
+          <div style="display:flex; flex-direction:column; gap:8px; min-width:0"><label for="ds-spend" style="font-size:13px; color:#a1a1a1">Monthly marketing spend</label><select id="ds-spend" style="background:#000; border:1px solid #262626; border-radius:6px; color:#ededed; font-size:14.5px; padding:13px 14px; width:100%; min-width:0"><option>Select a range</option><option>Under $10k</option><option>$10k to $50k</option><option>$50k to $250k</option><option>Over $250k</option></select></div>
+          <button type="submit" style="grid-column:1/-1; background:#ededed; color:#000; border:none; border-radius:6px; font-size:15px; font-weight:500; padding:15px 20px; cursor:pointer">See available times</button>
+          <span style="grid-column:1/-1; font-size:13px; color:#6e6e6e">By submitting, you agree to our <a href="#terms" style="color:#a1a1a1; text-decoration:underline">terms</a>.</span>
+        </form>
+      </div>
+      <div style="grid-column:span 6; min-width:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px">
+        <div style="grid-column:1/-1; background:#0b0b0b; border-radius:10px; padding:28px; display:flex; flex-direction:column; gap:18px">
+          <span style="font-size:13px; color:#6e6e6e">Covered by</span>
+          <div style="display:flex; align-items:center; flex-wrap:wrap; gap:20px 28px; min-width:0; opacity:0.72">
+            <img src="assets/logo-nyt.svg" alt="The New York Times" style="height:22px">
+            <img src="assets/logo-observer.svg" alt="The Observer" style="height:20px">
+            <img src="assets/logo-nypost.svg" alt="New York Post" style="height:18px">
+            <img src="assets/logo-wan.png" alt="The WAN Show" style="height:24px">
+          </div>
+        </div>
+        <div style="background:#0b0b0b; border-radius:10px; padding:28px; display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'moret-variable','Bodoni Moda',serif; font-size:44px; line-height:1; letter-spacing:-0.02em">2x</span>
+          <span style="font-size:14.5px; line-height:1.5; color:#a1a1a1">daily posting per managed account, reviewed by you before it ships.</span>
+        </div>
+        <div style="background:#0b0b0b; border-radius:10px; padding:28px; display:flex; flex-direction:column; gap:10px">
+          <span style="font-family:'moret-variable','Bodoni Moda',serif; font-size:44px; line-height:1; letter-spacing:-0.02em">US</span>
+          <span style="font-size:14.5px; line-height:1.5; color:#a1a1a1">device traffic and posting. Real phones, not emulators or APIs.</span>
+        </div>
+        <div style="grid-column:1/-1; background:#0b0b0b; border-radius:10px; padding:28px; display:flex; flex-direction:column; gap:12px">
+          <p style="margin:0; font-size:17px; line-height:1.5; letter-spacing:-0.01em">"Synthetic creators. Real results."</p>
+          <span style="font-size:13px; color:#6e6e6e">What every call ends with: your niche, mapped, and a week of drafts to react to.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" style="max-width:1240px; margin:0 auto; padding:120px 32px 0; display:flex; flex-direction:column; align-items:center; gap:40px">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center">
+        <h2 data-fx="rise" style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:44px; line-height:1.05; letter-spacing:-0.01em">Frequently asked</h2>
+        <p style="margin:0; font-size:15px; line-height:1.6; color:#6e6e6e">Questions from audit calls this quarter.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:28px; width:100%; max-width:680px">
+        <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="4">
+          <div style="display:flex; flex-direction:column; gap:12px">
+            <div data-fx="ask" style="align-self:flex-end; max-width:78%; background:#141414; border-radius:14px 14px 4px 14px; padding:14px 18px; font-size:16px; line-height:1.5">{{ faq.q }}</div>
+            <div data-fx="reply" style="display:grid; grid-template-columns:28px 1fr; gap:12px; align-items:start; max-width:88%">
+              <span style="width:28px; height:28px; border-radius:50%; background:#ededed; display:grid; place-items:center; color:#000; font-size:13px; font-weight:600">»</span>
+              <div style="display:flex; flex-direction:column; gap:10px; font-size:16px; line-height:1.6; color:#c9c9c9; padding-top:3px">
+                <sc-for list="{{ faq.a }}" as="para" hint-placeholder-count="1"><p style="margin:0">{{ para }}</p></sc-for>
+                <sc-for list="{{ faq.list }}" as="item" hint-placeholder-count="0"><p style="margin:0; display:grid; grid-template-columns:auto 1fr; gap:10px"><span style="color:#6e6e6e; font-variant-numeric:tabular-nums">{{ item.n }}.</span><span>{{ item.text }}</span></p></sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:120px 32px 0">
+      <div style="position:relative; overflow:hidden; border-radius:12px; min-height:520px; display:flex; align-items:center; justify-content:center; background:#000">
+        <x-import component-from-global-scope="footer-fx" from="./footer-fx.js" variant="image-clear" src="assets/eyes-loop.mp4" cell="4" gain="2.4" radius="190" style="position:absolute; inset:0" hint-size="100%,100%"></x-import>
+        <div style="position:absolute; inset:0; pointer-events:none; background:radial-gradient(55% 55% at 50% 50%, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0) 100%)"></div>
+        <div data-fx="closing" style="position:relative; padding:96px 32px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:20px">
+          <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(38px,4.6vw,64px); line-height:1.02; letter-spacing:-0.02em; max-width:20ch">Synthetic creators. Real results.</h2>
+          <p style="margin:0; font-size:17px; line-height:1.6; color:#e5e5e5; max-width:52ch">It's never been easier to create and deploy content without human cost. Stay up to date with changes and strategies in our community.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; padding-top:8px">
+            <a class="ds-chevbtn" href="#discord" style="position:relative; display:inline-flex; align-items:center; height:44px; width:172px; overflow:hidden; border-radius:8px; background:linear-gradient(180deg,#141414 0%,#0a0a0a 100%); border:1px solid #333; box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)">
+              <span class="ds-chevlabel" style="position:absolute; right:16px; z-index:2; font-size:14.5px; font-weight:500; letter-spacing:-0.01em; color:#ededed">Join Discord</span>
+              <span class="ds-chevpanel" aria-hidden="true" style="position:absolute; top:4px; bottom:4px; left:4px; z-index:1; display:flex; align-items:center; gap:10px; width:36px; overflow:hidden; border-radius:5px; padding-left:12px; padding-right:10px; background:linear-gradient(180deg,#ffffff 0%,#ededed 100%); box-shadow:inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 4px rgba(0,0,0,0.25); transition:width .2s cubic-bezier(.65,0,.35,1)">{{ chevrons }}</span>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="position:relative; overflow:hidden; background:#000">
+    <x-import component-from-global-scope="footer-fx" from="./footer-fx.js" variant="assemble" text="Automating Attention." cell="4" fit="0.96" fit-height="0.3" align="bottom" style="position:absolute; inset:0" hint-size="100%,100%"></x-import>
+    <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 120px 32px 260px; display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 32px; border-top: 1px solid #1a1a1a; border-color: #FAF9F500">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0; align-items: flex-start">
+        <img src="assets/logo-doublespeed.svg" alt="doublespeed" style="height:20px; width:auto; display:block">
+        <nav style="display:flex; flex-wrap:wrap; gap:10px 24px; align-items:baseline">
+          <a href="#docs" style="font-size:14px; color:#a1a1a1">Docs</a>
+          <a href="#changelog" style="font-size:14px; color:#a1a1a1">Changelog</a>
+          <a href="#terms" style="font-size:14px; color:#a1a1a1">Terms</a>
+          <a href="#contact" style="font-size:14px; color:#a1a1a1">Contact</a>
+        </nav>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; min-width:0">
+        <span style="display: flex; align-items: center; gap: 8px; text-align: center; justify-content: center"><img src="assets/icon-bulk.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#a1a1a1; text-transform:uppercase">Bulk content creation</span></span>
+        <span style="display: flex; align-items: center; gap: 8px; justify-content: center"><img src="assets/icon-usdevice.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#a1a1a1; text-transform:uppercase">U.S. device deployment</span></span>
+      </div>
+      <span style="font-size: 12.5px; color: #6e6e6e; text-align: right">© 2026 Doublespeed, Inc.</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;ditherPixel&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:3,&quot;min&quot;:2,&quot;max&quot;:8,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Dither&quot;},&quot;signalColor&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Dither&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#4ade80&quot;,&quot;options&quot;:[&quot;#4ade80&quot;,&quot;#ededed&quot;,&quot;#f5a524&quot;,&quot;#3b82f6&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Dither&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.canvases = {};
+    this.collect = (el) => {
+      if (el && el.dataset && el.dataset.field) {
+        this.canvases[el.dataset.field] = el;
+        requestAnimationFrame(() => this.paint(el));
+      }
+    };
+    this.onResize = () => {
+      clearTimeout(this._t);
+      this._t = setTimeout(() => Object.values(this.canvases).forEach((c) => this.paint(c)), 120);
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.onResize);
+    this._fxT = setTimeout(() => this.motion(), 120);
+  }
+
+  // One GSAP pass. Nothing is hidden until the clock is confirmed running, so a
+  // stalled or absent GSAP leaves the page fully readable.
+  motion() {
+    if (this._fx) return;
+    const g = window.gsap;
+    if (!g || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    this._fx = true;
+    const t0 = g.ticker.time;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (g.ticker.time === t0) return;
+      this.runMotion(g);
+    }));
+  }
+
+  runMotion(g) {
+    const ST = window.ScrollTrigger;
+    if (ST) g.registerPlugin(ST);
+    const q = (sel) => Array.from(document.querySelectorAll(sel));
+    const trig = (el, start) => ST ? { trigger: el, start: start || "top 82%", once: true } : undefined;
+    const reveal = (els, vars, opts) => {
+      if (!els.length) return;
+      g.set(els, { opacity: 0, y: vars.y || 0, x: vars.x || 0 });
+      g.to(els, Object.assign({ opacity: 1, y: 0, x: 0, duration: 0.85, ease: "power3.out", clearProps: "opacity,transform,visibility" }, opts));
+    };
+
+    // Hero: the title lifts word by word out of a mask.
+    const h1 = document.querySelector('[data-fx="hero-title"]');
+    if (h1 && !h1.dataset.split) {
+      h1.dataset.split = "1";
+      h1.innerHTML = h1.textContent.trim().split(" ")
+        .map((w) => '<span style="display:inline-block; overflow:hidden; vertical-align:top"><span style="display:inline-block">' + w + "</span></span>")
+        .join(" ");
+      const inner = h1.querySelectorAll("span > span");
+      g.set(inner, { yPercent: 118 });
+      g.to(inner, { yPercent: 0, duration: 1.15, ease: "expo.out", stagger: 0.09, delay: 0.05, clearProps: "opacity,transform,visibility" });
+    }
+    reveal(q('[data-fx="hero-copy"]'), { y: 22 }, { stagger: 0.1, delay: 0.5, duration: 0.9 });
+    const press = document.querySelector('[data-fx="press"]');
+    if (press) reveal(Array.from(press.children), { y: 14 }, { stagger: 0.07, delay: 0.9, duration: 0.7 });
+    const media = document.querySelector('[data-fx="hero-media"]');
+    if (media) {
+      g.set(media, { opacity: 0 });
+      g.to(media, { opacity: 1, duration: 1.3, ease: "power2.out", delay: 0.2, clearProps: "opacity" });
+      if (ST) g.to(media, { yPercent: -8, ease: "none", scrollTrigger: { trigger: media, start: "top top", end: "bottom top", scrub: 0.6 } });
+    }
+
+    // Section turns: heading and its lede rise together, once.
+    q('[data-fx="rise"]').forEach((el) => {
+      const group = [el, el.nextElementSibling].filter(Boolean);
+      reveal(group, { y: 26 }, { stagger: 0.08, scrollTrigger: trig(el) });
+    });
+
+    // Cards: peers stagger per row so each grid reads left to right.
+    const rows = new Map();
+    q('[data-fx="card"], [data-fx="plan"]').forEach((el) => {
+      if (!rows.has(el.parentElement)) rows.set(el.parentElement, []);
+      rows.get(el.parentElement).push(el);
+    });
+    rows.forEach((els, parent) => reveal(els, { y: 34 }, { stagger: 0.1, duration: 0.8, scrollTrigger: trig(parent, "top 85%") }));
+
+    // Transcript: the question arrives from the reader's side, the answer from ours.
+    q('[data-fx="ask"]').forEach((el) => reveal([el], { x: 26 }, { duration: 0.6, scrollTrigger: trig(el, "top 88%") }));
+    q('[data-fx="reply"]').forEach((el) => reveal([el], { x: -22 }, { duration: 0.6, delay: 0.1, scrollTrigger: trig(el, "top 88%") }));
+
+    const closing = document.querySelector('[data-fx="closing"]');
+    if (closing) reveal(Array.from(closing.children), { y: 30 }, { stagger: 0.12, duration: 0.9, scrollTrigger: trig(closing, "top 80%") });
+
+    if (ST) {
+      window.addEventListener("load", () => ST.refresh());
+      setTimeout(() => ST.refresh(), 600);
+    }
+    // Failsafe: anything still hidden after the pass should be restored.
+    setTimeout(() => {
+      q('[data-fx]').concat(press ? Array.from(press.children) : []).forEach((el) => {
+        const cs = getComputedStyle(el);
+        if (parseFloat(cs.opacity) < 0.05 || cs.visibility === "hidden") g.set(el, { clearProps: "opacity,transform,visibility" });
+      });
+    }, 4000);
+  }
+
+  componentWillUnmount() { window.removeEventListener("resize", this.onResize); clearTimeout(this._t); clearTimeout(this._fxT); }
+  componentDidUpdate() { Object.values(this.canvases).forEach((c) => this.paint(c)); }
+
+  // ordered 8x8 Bayer dither, 1-bit, white on transparent
+  paint(canvas) {
+    const rect = canvas.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    const px = Math.max(2, Math.min(8, Math.round(this.props.ditherPixel ?? 3)));
+    const w = Math.floor(rect.width), h = Math.floor(rect.height);
+    canvas.width = w; canvas.height = h;
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, w, h);
+    const B = Component.BAYER;
+    const field = this.fieldFor(canvas.dataset.field, w / h);
+    const cols = Math.ceil(w / px), rows = Math.ceil(h / px);
+    ctx.fillStyle = "#ffffff";
+    const accent = this.props.accent ?? "#4ade80";
+    const useAccent = (this.props.signalColor ?? true);
+    for (let gy = 0; gy < rows; gy++) {
+      for (let gx = 0; gx < cols; gx++) {
+        const nx = (gx + 0.5) / cols, ny = (gy + 0.5) / rows;
+        const s = field(nx, ny);
+        const v = typeof s === "number" ? s : s.v;
+        const isAccent = typeof s === "number" ? false : !!s.accent;
+        const t = (B[gy & 7][gx & 7] + 0.5) / 64;
+        if (v > t) {
+          ctx.fillStyle = isAccent && useAccent ? accent : "#ffffff";
+          ctx.fillRect(gx * px, gy * px, px, px);
+        }
+      }
+    }
+  }
+
+  fieldFor(name, aspect) {
+    if (name === "hero") return this.heroField(aspect);
+    if (name === "personas") return this.figureField();
+    if (name === "grid") return this.tileField();
+    return this.bandField();
+  }
+
+  // luminous core with threads descending: abstract "automated attention"
+  heroField(aspect) {
+    const cx = 0.5, cy = 0.36, r = 0.3;
+    const threads = [0.24, 0.36, 0.44, 0.5, 0.58, 0.66, 0.78];
+    return (x, y) => {
+      const dx = (x - cx) * aspect * 0.62, dy = y - cy;
+      const d = Math.sqrt(dx * dx + dy * dy) / r;
+      let v = Math.exp(-d * d * 1.5) * 1.05;
+      v *= 0.55 + 0.45 * (1 - y);
+      for (let i = 0; i < threads.length; i++) {
+        const tx = threads[i];
+        const dist = Math.abs(x - tx);
+        if (y > cy + 0.02 && dist < 0.004) v = Math.max(v, 0.55 * (1 - (y - cy) * 0.7));
+        const ny = 0.62 + (i % 3) * 0.09;
+        const nd = Math.sqrt(Math.pow((x - tx) * aspect * 0.62, 2) + Math.pow(y - ny, 2));
+        if (nd < 0.035) v = Math.max(v, 0.9 * (1 - nd / 0.035));
+      }
+      return Math.min(1, Math.max(0, v - 0.06));
+    };
+  }
+
+  // grid of dithered figures, one lit as the configured persona
+  figureField() {
+    const cols = 7, rows = 3, pick = { c: 4, r: 1 };
+    const rnd = (c, r) => ((Math.sin(c * 12.9898 + r * 78.233) * 43758.5453) % 1 + 1) % 1;
+    return (x, y) => {
+      const c = Math.floor(x * cols), r = Math.floor(y * rows);
+      const lx = x * cols - c, ly = y * rows - r;
+      const chosen = c === pick.c && r === pick.r;
+      const weight = chosen ? 1 : 0.2 + rnd(c, r) * 0.22;
+      let v = 0;
+      const hx = lx - 0.5, hy = ly - 0.3;
+      if (Math.sqrt(hx * hx * 3.2 + hy * hy * 1.9) < 0.16) v = weight;
+      if (ly > 0.4 && ly < 0.86 && Math.abs(lx - 0.5) < 0.15 - (ly - 0.4) * 0.06) v = weight;
+      return { v, accent: chosen };
+    };
+  }
+
+  // performance grid: tile brightness encodes attention, marked tiles are training data
+  tileField() {
+    const cols = 8, rows = 5;
+    const rnd = (c, r) => ((Math.sin(c * 34.17 + r * 91.43) * 24634.6345) % 1 + 1) % 1;
+    return (x, y) => {
+      const c = Math.floor(x * cols), r = Math.floor(y * rows);
+      const lx = x * cols - c, ly = y * rows - r;
+      if (lx < 0.06 || lx > 0.94 || ly < 0.08 || ly > 0.92) return 0;
+      const s = rnd(c, r);
+      const top = s > 0.82;
+      return { v: 0.12 + s * 0.8, accent: top };
+    };
+  }
+
+  bandField() {
+    // confined to the right half so the copy column stays clean
+    return (x, y) => {
+      if (x < 0.56) return 0;
+      const rx = (x - 0.56) / 0.44;
+      return Math.max(0, 0.55 * Math.pow(rx, 1.6) * (0.35 + 0.65 * y) - 0.03);
+    };
+  }
+
+  plans() {
+    const g = {
+      phone: { __html: '<svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3.5" y="1" width="7" height="12" rx="1.5"/><path d="M6 3h2"/></svg>' },
+      agent: { __html: '<svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3l4 4-4 4M7 3l4 4-4 4"/></svg>' },
+      team: { __html: '<svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="5" cy="4.5" r="2.2"/><circle cx="10" cy="5.5" r="1.7"/><path d="M1 12c0-2.4 1.8-4 4-4s4 1.6 4 4M9.5 8.5c1.9 0 3.5 1.3 3.5 3.2"/></svg>' },
+    };
+    const ghost = "display:flex; align-items:center; justify-content:center; height:46px; border-radius:8px; background:#1a1a1c; box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08), 0 6px 12px rgba(0,0,0,0.3); font-size:16px; font-weight:500; letter-spacing:-0.01em; color:#ededed";
+    const solid = "display:flex; align-items:center; justify-content:center; height:46px; border-radius:8px; background:linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0) 56%), rgba(255,255,255,0.94); box-shadow:inset 0 0 0 2px rgba(0,0,0,0.1), 0 0 0 2px rgba(255,255,255,0.07), inset 0 2px 3px -1px rgba(255,255,255,0.3), 0 7px 16px -5px rgba(0,0,0,0.45); font-size:16px; font-weight:500; letter-spacing:-0.01em; color:#0a0d14";
+    const base = [
+      { name: "Hosted Account Slot", badge: "", glyph: g.phone, who: "Best for teams running their own content", price: "$150", unit: "/account per month", cta: "Get started", features: ["US device traffic and posting", "Human-like instrumentation", "In-house warming algorithm", "Bulk creation suite, image, video, and audio models"] },
+      { name: "Content Agent", badge: "RESEARCH PREVIEW", glyph: g.agent, who: "Scaling consumer apps, e-commerce brands", price: "$250", unit: "/account per month", cta: "Book a call", features: ["Everything in Hosted Account Slot", "Content generated and scheduled for you", "Drafts land in a review link for approval", "Learns from what performs on your accounts"] },
+      { name: "Managed Service", badge: "", glyph: g.team, who: "For teams ready to scale the whole operation", price: "Quoted", unit: "on a call", cta: "Book a call", features: ["Dedicated strategist", "In-house editing team", "2x daily posting", "Performance and iteration loop"] },
+    ];
+    return base.map((p, i) => ({ ...p, priceSize: i === 1 ? "40px" : "32px", ctaStyle: i === 1 ? solid : ghost,
+      listLabel: i === 1 ? "Adds to hosted slot" : "Stand out features",
+      glow: ["transparent", "rgba(255,255,255,0.34)", "transparent"][i] }));
+  }
+
+  chevrons() {
+    const dots = [[2,2,0],[5,5,0.05],[8,8,0.1],[5,11,0.15],[2,14,0.2],[6,2,0.05],[9,5,0.1],[12,8,0.15],[9,11,0.2],[6,14,0.25]];
+    return [0,1,2,3,4].map((k) =>
+      React.createElement("svg", { key: k, width: 14, height: 16, viewBox: "0 0 14 16", "aria-hidden": true, style: { flexShrink: 0, overflow: "visible" } },
+        React.createElement("g", { fill: "#0a0a0a" },
+          dots.map(([cx, cy, d], i) =>
+            React.createElement("circle", { key: i, cx, cy, r: 1, className: "ds-dot", style: { animationDelay: (k * 0.12 + d) + "s" } })
+          )
+        )
+      )
+    );
+  }
+
+  renderVals() {
+    return {
+      collect: this.collect,
+      onSubmit: (e) => e.preventDefault(),
+      chevrons: this.chevrons(),
+      capabilities: [
+        { title: "Content fine-tuning", image: "assets/cap-finetune.jpg", alt: "A prompt bar applying 'make all text lowercase' to every post in a content table", tag: "Edit", body: "AI does the heavy lifting, humans add the final 5% that makes platforms trust it's real. We've automated the arbitrage between perfect and believable." },
+        { title: "Bulk posts", image: "assets/cap-bulk.jpg", alt: "Bulk upload media button above a grid of vertical videos", tag: "Publish", body: "Deployment solves distribution. Content creation at scale solves inventory. Generate a week's worth in minutes, on-brand and performance-optimized." },
+        { title: "Account management", image: "assets/cap-accounts.jpg", alt: "Account table with followers, posts and impressions per profile", tag: "Operate", body: "Full control over every account parameter. Change bios, profile pics and even the content they interact with. All orchestrated on real devices." },
+        { title: "Hyper-specific personas", image: "assets/cap-personas.jpg", alt: "Persona profile with demographic and interest tags", tag: "Define", body: "Every synthetic influencer needs consistent patterns. Define who they are and what their background is for content that persists their character." },
+        { title: "Workflow builder", image: "assets/cap-workflow.jpg", alt: "A source photo and product shot combined into a finished post", tag: "Automate", body: "Chain AI models, set triggers, automate responses. Build pipelines that turn trending content into unique variations. Infrastructure as code for content ops." },
+        { title: "1 video, 100 ways", image: "assets/cap-variations.jpg", alt: "Four variations of one video with different hooks and captions", tag: "Multiply", body: "Winners get cloned, not repeated. Take proven content and spawn variation. Different hooks, formats, lengths. Each unique enough to avoid suppression." }
+      ],
+      plans: this.plans(),
+      faqs: [
+        { q: "What are businesses using doublespeed for?", a: ["doublespeed is the operating layer for autonomous social media. Brands, agencies, and creators use our terminal to generate content, run synthetic personas, and deploy across TikTok, Instagram, Reddit, LinkedIn, YouTube, and X from a single interface.", "We combine both the content creation layer with posting infrastructure. The result is content operations at scale, replacing 30 person creator teams."], list: [] },
+        { q: "How does it work?", a: ["Generate content in bulk, build personas, schedule deployment across your account fleet. Or hand it off to a managed team and review what gets posted."], list: ["Hosted Account Slot: for posting capacity on real US devices, with your own content.", "Content Agent: for dedicated agentic accounts running on real US devices.", "Managed Service: for end-to-end execution by a strategist and creator team."] },
+        { q: "Why real phones instead of emulators or APIs?", a: ["API calls to social platforms limit reach. A real phone on a real US carrier looks like every other phone on the network. Device fingerprint, IMEI, carrier signal: none of it can be faked from a server. If you want accounts to behave like real users, they have to live on real devices."], list: [] },
+        { q: "How much does it cost?", a: [], list: ["Hosted Account Slot is $150 per account per month, with a 10-account minimum. A dedicated slot on a real US device; you bring the content.", "Content Agent is $250 per account per month, in research preview. Everything in a hosted slot, with agentic content operations running it; access is approved on a call.", "Managed Service is scoped on a call. Done-for-you content operations with a dedicated strategist and creator team."] }
+      ].map((f) => ({ ...f, list: f.list.map((text, i) => ({ n: i + 1, text })) }))
+    };
+  }
+}
+Component.BAYER = [
+  [0, 32, 8, 40, 2, 34, 10, 42],
+  [48, 16, 56, 24, 50, 18, 58, 26],
+  [12, 44, 4, 36, 14, 46, 6, 38],
+  [60, 28, 52, 20, 62, 30, 54, 22],
+  [3, 35, 11, 43, 1, 33, 9, 41],
+  [51, 19, 59, 27, 49, 17, 57, 25],
+  [15, 47, 7, 39, 13, 45, 5, 37],
+  [63, 31, 55, 23, 61, 29, 53, 21]
+];
+</script>
+</body>
+</html>

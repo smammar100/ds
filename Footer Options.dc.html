@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="design_doc_mode" content="canvas">
+<title>Closing and footer options</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&amp;family=Geist+Mono:wght@400..500&amp;family=Bodoni+Moda:opsz,wght@6..96,400&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/hky5sxh.css">
+<style>
+  html, body { margin:0; padding:0; background:#000; }
+  body { font-family:"Geist", system-ui, sans-serif; color:#ededed; -webkit-font-smoothing:antialiased; text-wrap:pretty; }
+  * { box-sizing:border-box; }
+  a { color:#ededed; text-decoration:none; } a:hover { color:#fff; }
+  .ds-link { color:#a1a1a1; transition:color .2s ease, transform .35s cubic-bezier(.2,.8,.2,1); display:inline-block; }
+  .ds-link:hover { color:#fff; }
+  .ds-cta { transition:transform .3s cubic-bezier(.2,.8,.2,1), background .2s ease; }
+  .ds-cta:hover { transform:translateY(-2px); }
+</style>
+<script src="./footer-fx.js"></script>
+</helmet>
+
+<section style="padding:48px 40px 40px; display:flex; flex-direction:column; gap:88px">
+
+  <div id="2a" style="display:flex; flex-direction:column; gap:18px">
+    <span style="font-family:'Geist Mono',monospace; font-size:12px; color:#6e6e6e"><a href="#2a">2a</a> · Tune-in: static resolves into the crowd as the band scrolls in; the CTA sits on the screen</span>
+    <div style="position:relative; overflow:hidden; background:#000; border-radius:12px; min-height:760px; display:flex; flex-direction:column; justify-content:space-between">
+      <footer-fx variant="image-tune" src="assets/crowd-eye.png" cell="4" gain="1.6" focus-y="0.35" style="position:absolute; inset:0"></footer-fx>
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.88) 42%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.1) 78%, rgba(0,0,0,0.9) 100%)"></div>
+      <div style="position:relative; max-width:1240px; width:100%; margin:0 auto; padding:96px 32px 0; display:flex; flex-direction:column; align-items:center; text-align:center; gap:20px">
+        <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(40px,5.2vw,76px); line-height:1.02; letter-spacing:-0.02em; max-width:16ch">Synthetic creators. Real results.</h2>
+        <p style="margin:0; font-size:17px; line-height:1.6; color:#c9c9c9; max-width:46ch">It's never been easier to create and deploy content without human cost. Stay up to date with changes and strategies in our community.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; padding-top:8px">
+          <a class="ds-cta" href="#discord" style="font-size:14.5px; font-weight:500; color:#000; background:#ededed; padding:12px 20px; border-radius:4px">Join Discord</a>
+          <a class="ds-cta" href="#book" style="font-size:14.5px; font-weight:500; padding:12px 20px; border-radius:4px; border:1px solid #555; background:rgba(0,0,0,0.5)">Book a call</a>
+        </div>
+      </div>
+      <div style="position:relative; max-width:1240px; width:100%; margin:0 auto; padding:0 32px 36px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px 40px">
+        <div style="display:flex; flex-direction:column; gap:12px">
+          <img src="assets/logo-doublespeed.svg" alt="doublespeed" style="height:20px; width:auto; display:block">
+          <span style="font-family:'moret-variable','Bodoni Moda',serif; font-size:28px; line-height:1.05">Automating Attention.</span>
+        </div>
+        <nav style="display:flex; flex-wrap:wrap; gap:10px 24px">
+          <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+            <a class="ds-link" href="{{ l.href }}" style="font-size:14px">{{ l.label }}</a>
+          </sc-for>
+        </nav>
+        <span style="font-size:12.5px; color:#6e6e6e">© 2026 Doublespeed, Inc.</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="2b" style="display:flex; flex-direction:column; gap:18px">
+    <span style="font-family:'Geist Mono',monospace; font-size:12px; color:#6e6e6e"><a href="#2b">2b</a> · Clear window: the eye reel runs as dither; the pointer opens a true-colour window into it</span>
+    <div style="position:relative; overflow:hidden; background:#000; border-radius:12px; min-height:720px; display:flex; flex-direction:column; justify-content:flex-end">
+      <footer-fx variant="image-clear" src="assets/eyes-loop.mp4" text="doublespeed" fit="0.96" fit-height="0.34" align="bottom" cell="5" gain="1.3" radius="190" style="position:absolute; inset:0"></footer-fx>
+      <div style="position:relative; max-width:1240px; width:100%; margin:0 auto; padding:96px 32px 0; display:flex; flex-direction:column; gap:20px; align-items:flex-start; pointer-events:none">
+        <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(40px,4.6vw,66px); line-height:1.02; letter-spacing:-0.02em; max-width:14ch; pointer-events:auto">Synthetic creators. Real results.</h2>
+        <p style="margin:0; font-size:17px; line-height:1.6; color:#a1a1a1; max-width:44ch; pointer-events:auto">It's never been easier to create and deploy content without human cost. Stay up to date with changes and strategies in our community.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; padding-top:8px; pointer-events:auto">
+          <a class="ds-cta" href="#discord" style="font-size:14.5px; font-weight:500; color:#000; background:#ededed; padding:12px 20px; border-radius:4px">Join Discord</a>
+          <a class="ds-cta" href="#book" style="font-size:14.5px; font-weight:500; padding:12px 20px; border-radius:4px; border:1px solid #333; background:#000">Book a call</a>
+        </div>
+      </div>
+      <div style="position:relative; max-width:1240px; width:100%; margin:0 auto; padding:56px 32px 0; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px 40px; pointer-events:none">
+        <nav style="display:flex; flex-wrap:wrap; gap:10px 24px; pointer-events:auto">
+          <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+            <a class="ds-link" href="{{ l.href }}" style="font-size:14px">{{ l.label }}</a>
+          </sc-for>
+        </nav>
+        <span style="font-size:12.5px; color:#6e6e6e">© 2026 Doublespeed, Inc.</span>
+      </div>
+      <div style="position:relative; height:250px"></div>
+    </div>
+  </div>
+
+  <div id="2c" style="display:flex; flex-direction:column; gap:18px">
+    <span style="font-family:'Geist Mono',monospace; font-size:12px; color:#6e6e6e"><a href="#2c">2c</a> · Curtain: scroll inside the frame and the closing panel lifts to reveal the footer waiting underneath</span>
+    <div style="position:relative; height:720px; overflow:auto; border-radius:12px; background:#000; scrollbar-width:none">
+      <div style="position:sticky; top:0; height:720px; overflow:hidden; background:#000">
+        <footer-fx variant="image-fade" src="assets/crowd-eye.png" cell="4" gain="1.5" focus-y="0.4" style="position:absolute; inset:0"></footer-fx>
+        <div style="position:relative; max-width:1240px; margin:0 auto; padding:72px 32px 40px; height:100%; display:flex; flex-direction:column; justify-content:space-between">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px 40px; align-items:flex-start">
+            <img src="assets/logo-doublespeed.svg" alt="doublespeed" style="height:22px; width:auto; display:block">
+            <div style="display:flex; flex-wrap:wrap; gap:32px 56px">
+              <nav style="display:flex; flex-direction:column; gap:10px">
+                <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+                  <a class="ds-link" href="{{ l.href }}" style="font-size:14px">{{ l.label }}</a>
+                </sc-for>
+              </nav>
+              <div style="display:flex; flex-direction:column; gap:8px">
+                <span style="display:flex; align-items:center; gap:8px"><img src="assets/icon-bulk.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#6e6e6e; text-transform:uppercase">Bulk content creation</span></span>
+                <span style="display:flex; align-items:center; gap:8px"><img src="assets/icon-usdevice.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#6e6e6e; text-transform:uppercase">U.S. device deployment</span></span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:16px 40px">
+            <span style="font-family:'moret-variable','Bodoni Moda',serif; font-size:clamp(48px,7vw,112px); line-height:0.95; letter-spacing:-0.02em">Automating Attention.</span>
+            <span style="font-size:12.5px; color:#6e6e6e">© 2026 Doublespeed, Inc.</span>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative; z-index:1; margin-top:-720px; height:720px; background:#000; border-bottom:1px solid #1a1a1a; display:flex; align-items:center">
+        <div style="max-width:1240px; width:100%; margin:0 auto; padding:0 32px; display:flex; flex-direction:column; gap:20px; align-items:flex-start">
+          <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(40px,5vw,72px); line-height:1.02; letter-spacing:-0.02em; max-width:18ch">Synthetic creators. Real results.</h2>
+          <p style="margin:0; font-size:17px; line-height:1.6; color:#a1a1a1; max-width:46ch">It's never been easier to create and deploy content without human cost. Stay up to date with changes and strategies in our community.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; padding-top:8px">
+            <a class="ds-cta" href="#discord" style="font-size:14.5px; font-weight:500; color:#000; background:#ededed; padding:12px 20px; border-radius:4px">Join Discord</a>
+            <a class="ds-cta" href="#book" style="font-size:14.5px; font-weight:500; padding:12px 20px; border-radius:4px; border:1px solid #333">Book a call</a>
+          </div>
+          <span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#6e6e6e; text-transform:uppercase; padding-top:40px">Scroll ↓</span>
+        </div>
+      </div>
+      <div style="height:720px"></div>
+    </div>
+  </div>
+
+  <div id="2d" style="display:flex; flex-direction:column; gap:18px">
+    <span style="font-family:'Geist Mono',monospace; font-size:12px; color:#6e6e6e"><a href="#2d">2d</a> · Monitor: type on the left, the crowd on a framed screen with a live scan pass on the right</span>
+    <div style="position:relative; overflow:hidden; background:#000; border-radius:12px">
+      <div style="max-width:1240px; margin:0 auto; padding:96px 32px 48px; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:48px; align-items:stretch">
+        <div style="display:flex; flex-direction:column; justify-content:space-between; gap:64px; min-width:0">
+          <div style="display:flex; flex-direction:column; gap:20px; align-items:flex-start">
+            <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(40px,4.4vw,64px); line-height:1.02; letter-spacing:-0.02em">Synthetic creators. Real results.</h2>
+            <p style="margin:0; font-size:17px; line-height:1.6; color:#a1a1a1; max-width:42ch">It's never been easier to create and deploy content without human cost. Stay up to date with changes and strategies in our community.</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; padding-top:8px">
+              <a class="ds-cta" href="#discord" style="font-size:14.5px; font-weight:500; color:#000; background:#ededed; padding:12px 20px; border-radius:4px">Join Discord</a>
+              <a class="ds-cta" href="#book" style="font-size:14.5px; font-weight:500; padding:12px 20px; border-radius:4px; border:1px solid #333">Book a call</a>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:28px">
+            <div style="display:flex; flex-direction:column; gap:12px">
+              <img src="assets/logo-doublespeed.svg" alt="doublespeed" style="height:20px; width:auto; display:block">
+              <span style="font-family:'moret-variable','Bodoni Moda',serif; font-size:30px; line-height:1.05">Automating Attention.</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:16px 40px; align-items:baseline">
+              <nav style="display:flex; flex-wrap:wrap; gap:10px 24px">
+                <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+                  <a class="ds-link" href="{{ l.href }}" style="font-size:14px">{{ l.label }}</a>
+                </sc-for>
+              </nav>
+              <span style="font-size:12.5px; color:#6e6e6e">© 2026 Doublespeed, Inc.</span>
+            </div>
+          </div>
+        </div>
+        <div style="position:relative; min-height:560px; border:1px solid #262626; border-radius:6px; overflow:hidden; background:#000; min-width:0">
+          <footer-fx variant="image-scan" src="assets/crowd-eye.png" cell="3" gain="1.7" focus-y="0.35" style="position:absolute; inset:0"></footer-fx>
+          <div style="position:absolute; left:16px; right:16px; bottom:14px; display:flex; justify-content:space-between; font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:0.06em; color:#6e6e6e; text-transform:uppercase">
+            <span>Bulk content creation</span>
+            <span>U.S. device deployment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="2e" style="display:flex; flex-direction:column; gap:18px">
+    <span style="font-family:'Geist Mono',monospace; font-size:12px; color:#6e6e6e"><a href="#2e">2e</a> · Sign-off: the eye reel tunes in behind a display-size closing line whose letters flicker on like a set warming up</span>
+    <div ref="{{ flickerHost }}" style="position:relative; overflow:hidden; background:#000; border-radius:12px; min-height:760px; display:flex; flex-direction:column; justify-content:space-between">
+      <footer-fx variant="image-tune" src="assets/eyes-loop.mp4" cell="4" gain="1.2" style="position:absolute; inset:0; opacity:0.7"></footer-fx>
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.75) 100%)"></div>
+      <div style="position:relative; max-width:1240px; width:100%; margin:0 auto; padding:96px 32px 0; display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px 40px; align-items:flex-start">
+        <img src="assets/logo-doublespeed.svg" alt="doublespeed" style="height:22px; width:auto; display:block">
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <a class="ds-cta" href="#discord" style="font-size:14.5px; font-weight:500; color:#000; background:#ededed; padding:12px 20px; border-radius:4px">Join Discord</a>
+          <a class="ds-cta" href="#book" style="font-size:14.5px; font-weight:500; padding:12px 20px; border-radius:4px; border:1px solid #555; background:rgba(0,0,0,0.5)">Book a call</a>
+        </div>
+      </div>
+      <div style="position:relative; max-width:1240px; width:100%; margin:0 auto; padding:0 32px 40px; display:flex; flex-direction:column; gap:40px">
+        {{ flickerLine }}
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px 40px; border-top:1px solid rgba(255,255,255,0.14); padding-top:24px; align-items:start">
+          <p style="margin:0; font-size:15.5px; line-height:1.55; color:#c9c9c9; max-width:40ch">It's never been easier to create and deploy content without human cost. Stay up to date with changes and strategies in our community.</p>
+          <nav style="display:flex; flex-wrap:wrap; gap:10px 24px">
+            <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+              <a class="ds-link" href="{{ l.href }}" style="font-size:14px">{{ l.label }}</a>
+            </sc-for>
+          </nav>
+          <div style="display:flex; flex-direction:column; gap:8px; min-width:0">
+            <span style="display:flex; align-items:center; gap:8px"><img src="assets/icon-bulk.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#a1a1a1; text-transform:uppercase">Bulk content creation</span></span>
+            <span style="display:flex; align-items:center; gap:8px"><img src="assets/icon-usdevice.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#a1a1a1; text-transform:uppercase">U.S. device deployment</span></span>
+            <span style="font-size:12.5px; color:#a1a1a1; padding-top:8px">© 2026 Doublespeed, Inc.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section style="padding:48px 40px 120px; display:flex; flex-direction:column; gap:88px; border-top:1px solid #1a1a1a">
+
+  <div id="1a" style="display:flex; flex-direction:column; gap:18px">
+    <span style="font-family:'Geist Mono',monospace; font-size:12px; color:#6e6e6e"><a href="#1a">1a</a> · Wordmark assembles from scattered dither dots on entry</span>
+    <div style="position:relative; overflow:hidden; background:#000; border-radius:12px">
+      <footer-fx variant="assemble" text="Automating Attention." cell="4" fit="0.96" fit-height="0.3" align="bottom" style="position:absolute; inset:0"></footer-fx>
+      <div style="position:relative; max-width:1240px; margin:0 auto; padding:112px 32px 260px; display:flex; flex-direction:column; gap:56px">
+        <div style="position:relative; overflow:hidden; border-radius:12px; min-height:520px; display:flex; align-items:center; justify-content:center; background:#000">
+          <footer-fx variant="image-clear" src="assets/eyes-loop.mp4" cell="4" gain="2.4" radius="190" style="position:absolute; inset:0"></footer-fx>
+          <div style="position:absolute; inset:0; pointer-events:none; background:radial-gradient(55% 55% at 50% 50%, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0) 100%)"></div>
+          <div style="position:relative; padding:96px 32px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:20px">
+            <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(38px,4.6vw,64px); line-height:1.02; letter-spacing:-0.02em; max-width:20ch">Synthetic creators. Real results.</h2>
+            <p style="margin:0; font-size:17px; line-height:1.6; color:#e5e5e5; max-width:52ch">It's never been easier to create and deploy content without human cost. Stay up to date with changes and strategies in our community.</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; padding-top:8px">
+              <a class="ds-cta" href="#discord" style="font-size:14.5px; font-weight:500; color:#000; background:#ededed; padding:12px 20px; border-radius:4px">Join Discord</a>
+              <a class="ds-cta" href="#book" style="font-size:14.5px; font-weight:500; padding:12px 20px; border-radius:4px; border:1px solid #555; background:rgba(0,0,0,0.55)">Book a call</a>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 32px; border-top: 1px solid #1a1a1a; padding-top: 0px; justify-content: space-between; align-items: flex-start; border-color: #FAF9F500">
+          <nav style="display:flex; flex-wrap:wrap; gap:10px 24px; align-items:baseline">
+            <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+              <a class="ds-link" href="{{ l.href }}" style="font-size:14px">{{ l.label }}</a>
+            </sc-for>
+          </nav>
+          <div style="display:flex; flex-direction:column; gap:8px; min-width:0">
+            <span style="display:flex; align-items:center; gap:8px"><img src="assets/icon-bulk.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#6e6e6e; text-transform:uppercase">Bulk content creation</span></span>
+            <span style="display:flex; align-items:center; gap:8px"><img src="assets/icon-usdevice.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#6e6e6e; text-transform:uppercase">U.S. device deployment</span></span>
+          </div>
+          <span style="font-size:12.5px; color:#6e6e6e">© 2026 Doublespeed, Inc.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="1b" style="display:flex; flex-direction:column; gap:18px">
+    <span style="font-family:'Geist Mono',monospace; font-size:12px; color:#6e6e6e"><a href="#1b">1b</a> · Cursor is the light: move over the band to reveal the phrase</span>
+    <div style="position:relative; overflow:hidden; background:#000; border-radius:12px">
+      <footer-fx variant="spotlight" text="Automating Attention." font="'moret-variable','Bodoni Moda',serif" weight="400" cell="4" fit="0.94" fit-height="0.5" align="middle" style="position:absolute; inset:0"></footer-fx>
+      <div style="position:relative; max-width:1240px; margin:0 auto; padding:96px 32px 40px; display:flex; flex-direction:column; gap:180px">
+        <div style="display:flex; flex-direction:column; gap:20px; align-items:flex-start; max-width:600px">
+          <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(40px,4.4vw,64px); line-height:1.02; letter-spacing:-0.02em">Synthetic creators. Real results.</h2>
+          <p style="margin:0; font-size:17px; line-height:1.6; color:#a1a1a1; max-width:46ch">It's never been easier to create and deploy content without human cost. Stay up to date with changes and strategies in our community.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; padding-top:8px">
+            <a class="ds-cta" href="#discord" style="font-size:14.5px; font-weight:500; color:#000; background:#ededed; padding:12px 20px; border-radius:4px">Join Discord</a>
+            <a class="ds-cta" href="#book" style="font-size:14.5px; font-weight:500; padding:12px 20px; border-radius:4px; border:1px solid #333">Book a call</a>
+          </div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px 40px">
+          <div style="display:flex; align-items:center; gap:10px">
+            <img src="assets/logo-doublespeed.svg" alt="doublespeed" style="height:20px; width:auto; display:block">
+          </div>
+          <nav style="display:flex; flex-wrap:wrap; gap:10px 24px">
+            <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+              <a class="ds-link" href="{{ l.href }}" style="font-size:14px">{{ l.label }}</a>
+            </sc-for>
+          </nav>
+          <span style="font-size:12.5px; color:#6e6e6e">© 2026 Doublespeed, Inc.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="1c" style="display:flex; flex-direction:column; gap:18px">
+    <span style="font-family:'Geist Mono',monospace; font-size:12px; color:#6e6e6e"><a href="#1c">1c</a> · A scan bar sweeps the band and lights the wordmark as it passes</span>
+    <div style="position:relative; overflow:hidden; background:#000; border-radius:12px">
+      <footer-fx variant="scanline" text="doublespeed" cell="4" fit="0.96" fit-height="0.4" align="bottom" style="position:absolute; inset:0"></footer-fx>
+      <div style="position:relative; max-width:1240px; margin:0 auto; padding:112px 32px 240px; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:56px 40px; align-items:start">
+        <div style="display:flex; flex-direction:column; gap:20px; align-items:flex-start; min-width:0">
+          <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(40px,4.4vw,64px); line-height:1.02; letter-spacing:-0.02em">Synthetic creators. Real results.</h2>
+          <p style="margin:0; font-size:17px; line-height:1.6; color:#a1a1a1; max-width:44ch">It's never been easier to create and deploy content without human cost. Stay up to date with changes and strategies in our community.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:36px; min-width:0">
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <a class="ds-cta" href="#discord" style="font-size:14.5px; font-weight:500; color:#000; background:#ededed; padding:12px 20px; border-radius:4px">Join Discord</a>
+            <a class="ds-cta" href="#book" style="font-size:14.5px; font-weight:500; padding:12px 20px; border-radius:4px; border:1px solid #333">Book a call</a>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:32px 48px">
+            <nav style="display:flex; flex-direction:column; gap:10px">
+              <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+                <a class="ds-link" href="{{ l.href }}" style="font-size:14px">{{ l.label }}</a>
+              </sc-for>
+            </nav>
+            <div style="display:flex; flex-direction:column; gap:8px; min-width:0">
+              <span style="display:flex; align-items:center; gap:8px"><img src="assets/icon-bulk.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#6e6e6e; text-transform:uppercase">Bulk content creation</span></span>
+              <span style="display:flex; align-items:center; gap:8px"><img src="assets/icon-usdevice.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#6e6e6e; text-transform:uppercase">U.S. device deployment</span></span>
+              <span style="font-size:12.5px; color:#6e6e6e; padding-top:8px">© 2026 Doublespeed, Inc.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="1d" style="display:flex; flex-direction:column; gap:18px">
+    <span style="font-family:'Geist Mono',monospace; font-size:12px; color:#6e6e6e"><a href="#1d">1d</a> · Pointer ripples through the dither field; links lean toward the cursor</span>
+    <div ref="{{ magnetHost }}" style="position:relative; overflow:hidden; background:#000; border-radius:12px">
+      <footer-fx variant="ripple" text="Automating Attention." font="'moret-variable','Bodoni Moda',serif" weight="400" cell="5" fit="0.9" fit-height="0.46" align="middle" style="position:absolute; inset:0"></footer-fx>
+      <div style="position:relative; max-width:1240px; margin:0 auto; padding:104px 32px 48px; display:flex; flex-direction:column; gap:200px">
+        <div style="display:flex; flex-direction:column; gap:20px; align-items:flex-start; max-width:600px">
+          <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(40px,4.4vw,64px); line-height:1.02; letter-spacing:-0.02em">Synthetic creators. Real results.</h2>
+          <p style="margin:0; font-size:17px; line-height:1.6; color:#a1a1a1; max-width:46ch">It's never been easier to create and deploy content without human cost. Stay up to date with changes and strategies in our community.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; padding-top:8px">
+            <a class="ds-cta" href="#discord" style="font-size:14.5px; font-weight:500; color:#000; background:#ededed; padding:12px 20px; border-radius:4px">Join Discord</a>
+            <a class="ds-cta" href="#book" style="font-size:14.5px; font-weight:500; padding:12px 20px; border-radius:4px; border:1px solid #333">Book a call</a>
+          </div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:24px 40px; border-top:1px solid #1a1a1a; padding-top:26px">
+          <nav style="display:flex; flex-wrap:wrap; gap:10px 24px">
+            <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+              <a class="ds-link ds-magnet" href="{{ l.href }}" style="font-size:15px">{{ l.label }}</a>
+            </sc-for>
+          </nav>
+          <div style="display:flex; flex-wrap:wrap; gap:8px 24px; align-items:baseline">
+            <span style="display:flex; align-items:center; gap:8px"><img src="assets/icon-usdevice.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#6e6e6e; text-transform:uppercase">U.S. device deployment</span></span>
+            <span style="font-size:12.5px; color:#6e6e6e">© 2026 Doublespeed, Inc.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="1e" style="display:flex; flex-direction:column; gap:18px">
+    <span style="font-family:'Geist Mono',monospace; font-size:12px; color:#6e6e6e"><a href="#1e">1e</a> · Dither gradient thickens with scroll; the sign-off letters drop into place</span>
+    <div style="position:relative; overflow:hidden; background:#000; border-radius:12px">
+      <footer-fx variant="threshold" cell="4" style="position:absolute; inset:0"></footer-fx>
+      <div style="position:relative; max-width:1240px; margin:0 auto; padding:112px 32px 56px; display:flex; flex-direction:column; gap:120px">
+        <div style="display:flex; flex-direction:column; gap:20px; align-items:flex-start; max-width:600px">
+          <h2 style="margin:0; font-family:'moret-variable','Bodoni Moda',serif; font-weight:400; font-size:clamp(40px,4.4vw,64px); line-height:1.02; letter-spacing:-0.02em">Synthetic creators. Real results.</h2>
+          <p style="margin:0; font-size:17px; line-height:1.6; color:#a1a1a1; max-width:46ch">It's never been easier to create and deploy content without human cost. Stay up to date with changes and strategies in our community.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; padding-top:8px">
+            <a class="ds-cta" href="#discord" style="font-size:14.5px; font-weight:500; color:#000; background:#ededed; padding:12px 20px; border-radius:4px">Join Discord</a>
+            <a class="ds-cta" href="#book" style="font-size:14.5px; font-weight:500; padding:12px 20px; border-radius:4px; border:1px solid #333">Book a call</a>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:40px; align-items:end">
+          <div style="display:flex; flex-direction:column; gap:14px; min-width:0">
+            <div style="display:flex; align-items:center; gap:10px">
+              <img src="assets/logo-doublespeed.svg" alt="doublespeed" style="height:20px; width:auto; display:block">
+            </div>
+            {{ dropLine }}
+          </div>
+          <nav style="display:flex; flex-direction:column; gap:10px; min-width:0">
+            <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+              <a class="ds-link" href="{{ l.href }}" style="font-size:14px">{{ l.label }}</a>
+            </sc-for>
+          </nav>
+          <div style="display:flex; flex-direction:column; gap:8px; min-width:0">
+            <span style="display:flex; align-items:center; gap:8px"><img src="assets/icon-bulk.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#6e6e6e; text-transform:uppercase">Bulk content creation</span></span>
+            <span style="display:flex; align-items:center; gap:8px"><img src="assets/icon-usdevice.svg" alt="" aria-hidden="true" style="height:14px; width:auto; display:block; flex:none"><span style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#6e6e6e; text-transform:uppercase">U.S. device deployment</span></span>
+            <span style="font-size:12.5px; color:#6e6e6e; padding-top:8px">© 2026 Doublespeed, Inc.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  links = [
+    { label: "Docs", href: "#docs" },
+    { label: "Changelog", href: "#changelog" },
+    { label: "Terms", href: "#terms" },
+    { label: "Contact", href: "#contact" }
+  ];
+
+  componentDidMount() {
+    this.magnets = [];
+    this.onMove = (e) => {
+      if (this.reduced()) return;
+      const nodes = document.querySelectorAll(".ds-magnet");
+      nodes.forEach((n) => {
+        const r = n.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
+        const d = Math.hypot(dx, dy);
+        const pull = Math.max(0, 1 - d / 220);
+        n.style.transform = `translate(${dx * 0.18 * pull}px, ${dy * 0.18 * pull}px)`;
+        n.style.color = pull > 0.35 ? "#fff" : "";
+      });
+    };
+    window.addEventListener("pointermove", this.onMove, { passive: true });
+    this.startDrop();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("pointermove", this.onMove);
+    if (this.dropIo) this.dropIo.disconnect();
+  }
+
+  reduced() {
+    return matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  // Sign-off line: letters settle in with a damped spring, once, when scrolled to.
+  startDrop() {
+    const host = this.dropHost;
+    if (!host) return;
+    const spans = host.querySelectorAll("span[data-ch]");
+    if (this.reduced()) {
+      spans.forEach((s) => { s.style.transform = "none"; s.style.opacity = "1"; });
+      return;
+    }
+    this.dropIo = new IntersectionObserver((es) => {
+      if (!es[0].isIntersecting) return;
+      this.dropIo.disconnect();
+      spans.forEach((s, i) => {
+        s.animate(
+          [
+            { transform: "translateY(-52px) rotate(-6deg)", opacity: 0 },
+            { transform: "translateY(7px) rotate(1.5deg)", opacity: 1, offset: 0.62 },
+            { transform: "translateY(-3px) rotate(-0.6deg)", offset: 0.82 },
+            { transform: "none", opacity: 1 }
+          ],
+          { duration: 900, delay: i * 42, easing: "cubic-bezier(.2,.9,.2,1)", fill: "both" }
+        );
+      });
+    }, { threshold: 0.2 });
+    this.dropIo.observe(host);
+  }
+
+  renderVals() {
+    const text = "Automating Attention.";
+    const dropLine = React.createElement(
+      "p",
+      {
+        ref: (n) => { this.dropHost = n; if (n) this.startDrop(); },
+        style: {
+          margin: 0,
+          fontFamily: "'moret-variable','Bodoni Moda',serif",
+          fontWeight: 400,
+          fontSize: "clamp(28px,3vw,40px)",
+          lineHeight: 1.05,
+          letterSpacing: "-0.01em",
+          display: "flex",
+          flexWrap: "wrap"
+        }
+      },
+      text.split("").map((ch, i) =>
+        React.createElement(
+          "span",
+          { key: i, "data-ch": true, style: { display: "inline-block", opacity: 0, whiteSpace: "pre" } },
+          ch
+        )
+      )
+    );
+    const flickerLine = React.createElement(
+      "p",
+      {
+        ref: (n) => { this.flickHost = n; if (n) this.startFlicker(); },
+        style: {
+          margin: 0,
+          fontFamily: "'moret-variable','Bodoni Moda',serif",
+          fontWeight: 400,
+          fontSize: "clamp(48px,8vw,128px)",
+          lineHeight: 0.95,
+          letterSpacing: "-0.025em",
+          display: "flex",
+          flexWrap: "wrap"
+        }
+      },
+      "Automating Attention.".split("").map((ch, i) =>
+        React.createElement("span", { key: i, "data-fl": true, style: { display: "inline-block", opacity: 0, whiteSpace: "pre" } }, ch)
+      )
+    );
+    return { links: this.links, dropLine, flickerLine, magnetHost: (n) => { this.host = n; }, flickerHost: (n) => { this.flickerBand = n; } };
+  }
+
+  // CRT warm-up: each glyph strobes a few times, then holds; order is shuffled so it reads as a set, not a typewriter.
+  startFlicker() {
+    const host = this.flickHost;
+    if (!host || this.flickDone) return;
+    const spans = [...host.querySelectorAll("span[data-fl]")];
+    if (this.reduced()) { spans.forEach((s) => { s.style.opacity = "1"; }); this.flickDone = true; return; }
+    this.flickDone = true;
+    const io = new IntersectionObserver((es) => {
+      if (!es[0].isIntersecting) return;
+      io.disconnect();
+      const order = spans.map((_, i) => i).sort(() => Math.random() - 0.5);
+      order.forEach((idx, k) => {
+        const s = spans[idx];
+        s.animate(
+          [
+            { opacity: 0, filter: "brightness(2)" },
+            { opacity: 0.9, offset: 0.12 },
+            { opacity: 0.1, offset: 0.2 },
+            { opacity: 1, offset: 0.34 },
+            { opacity: 0.25, offset: 0.42 },
+            { opacity: 1, filter: "brightness(1.6)", offset: 0.6 },
+            { opacity: 1, filter: "brightness(1)" }
+          ],
+          { duration: 1100, delay: k * 28, easing: "steps(12,end)", fill: "both" }
+        );
+      });
+    }, { threshold: 0.25 });
+    io.observe(host);
+  }
+}
+</script>
+</body>
+</html>
