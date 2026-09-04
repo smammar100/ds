@@ -190,7 +190,13 @@
 @utility shell {
   max-width: 1240px;
   margin-inline: auto;
-  padding-inline: 32px;
+  padding-inline: 20px;
+}
+
+@media (min-width: 640px) {
+  .shell {
+    padding-inline: 32px;
+  }
 }
 
 /* Waving dot cluster inside the Discord chevron button */

@@ -11,7 +11,7 @@ export function Hero() {
       id="top"
       className="shell grid items-end gap-8 lg:grid-cols-12"
     >
-      <div className="flex min-h-[min(760px,88vh)] flex-col justify-center gap-7 pt-20 lg:col-span-6">
+      <div className="flex flex-col justify-center gap-7 pt-12 sm:pt-20 lg:col-span-6 lg:min-h-[min(760px,88vh)]">
         <Reveal variant="rise">
           <h1 className="font-display m-0 text-[clamp(52px,6.4vw,104px)] leading-[0.94] tracking-[-0.02em]">
             Automated Attention
@@ -27,7 +27,7 @@ export function Hero() {
 
         <Reveal variant="rise" delay={0.14}>
           <form
-            className="flex max-w-[440px] gap-2"
+            className="flex max-w-[440px] flex-col gap-2 min-[380px]:flex-row"
             onSubmit={(e) => e.preventDefault()}
           >
             <Input
@@ -62,7 +62,7 @@ export function Hero() {
         </Reveal>
       </div>
 
-      <div className="relative min-h-[520px] self-stretch lg:col-span-6">
+      <div className="relative min-h-[300px] self-stretch sm:min-h-[420px] lg:col-span-6 lg:min-h-[520px]">
         <video
           src="/assets/hero-dither.mp4"
           autoPlay

@@ -5,7 +5,7 @@ const CARD =
 
 export function Bento() {
   return (
-    <section className="shell pt-30">
+    <section className="shell pt-20 sm:pt-30">
       <Reveal variant="rise">
         <div className="mb-10 flex flex-col gap-3.5">
           <h2 className="font-display text-[clamp(32px,4vw,44px)] leading-[1.05] tracking-[-0.01em]">

@@ -47,7 +47,7 @@ function Chevrons() {
 
 export function ClosingCta() {
   return (
-    <section className="shell pt-30">
+    <section className="shell pt-20 sm:pt-30">
       <div className="relative flex min-h-[520px] items-center justify-center overflow-hidden rounded-xl bg-black">
         <FooterFx
           variant="image-clear"

@@ -65,14 +65,14 @@ export function NicheGrid() {
   }, []);
 
   return (
-    <section id="capabilities" ref={sectionRef} className="relative mt-30">
+    <section id="capabilities" ref={sectionRef} className="relative mt-20 sm:mt-30">
       <div
         className="grid w-full place-items-center overflow-hidden py-8"
         style={{ perspective: "1000px" }}
       >
         <div
           ref={wrapRef}
-          className="grid w-full grid-cols-4 gap-[2vw]"
+          className="grid w-full grid-cols-3 gap-[2vw] sm:grid-cols-4"
           style={{ transformStyle: "preserve-3d" }}
         >
           {Array.from({ length: COUNT }, (_, i) => (
@@ -92,7 +92,10 @@ export function NicheGrid() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[220px] bg-gradient-to-b from-transparent to-black" />
 
       <div className="pointer-events-none absolute inset-0 z-[2]">
-        <div className="sticky top-0 flex h-screen flex-col items-center justify-center gap-4 px-8 text-center">
+        {/* Scrim keeps the headline legible where tiles sit behind it. On
+            narrow screens the section is short, so the sweep never fully
+            clears the centre and the text would otherwise fight the images. */}
+        <div className="sticky top-0 flex h-screen flex-col items-center justify-center gap-4 bg-[radial-gradient(65%_42%_at_50%_50%,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.72)_45%,rgba(0,0,0,0)_100%)] px-6 text-center sm:px-8">
           <h2 className="font-display max-w-[20ch] text-[clamp(40px,7vw,96px)] leading-[0.98] tracking-[-0.02em]">
             An agent in every niche
           </h2>

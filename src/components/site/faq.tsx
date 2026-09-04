@@ -3,7 +3,7 @@ import { faqs } from "@/content/landing";
 
 export function Faq() {
   return (
-    <section id="faq" className="shell flex flex-col items-center gap-10 pt-30">
+    <section id="faq" className="shell flex flex-col items-center gap-10 pt-20 sm:pt-30">
       <Reveal variant="rise">
         <div className="flex flex-col items-center gap-3 text-center">
           <h2 className="font-display text-[clamp(32px,4vw,44px)] leading-[1.05] tracking-[-0.01em]">

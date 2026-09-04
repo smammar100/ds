@@ -26,7 +26,7 @@ export function SiteFooter() {
         style={{ position: "absolute", inset: 0 }}
       />
 
-      <div className="shell relative grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-8 pt-30 pb-64">
+      <div className="shell relative grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-8 pt-20 sm:pt-30 pb-40 sm:pb-64">
         <div className="flex min-w-0 flex-col items-start gap-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -51,7 +51,7 @@ export function SiteFooter() {
           {MARKS.map((mark) => (
             <span
               key={mark.label}
-              className="flex items-center justify-center gap-2"
+              className="flex items-center justify-start gap-2 sm:justify-center"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -67,7 +67,7 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <span className="text-right text-[12.5px] text-dim">
+        <span className="text-left text-[12.5px] text-dim sm:text-right">
           © 2026 Doublespeed, Inc.
         </span>
       </div>

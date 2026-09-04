@@ -44,7 +44,7 @@ const CTA_SOLID =
 
 export function Pricing() {
   return (
-    <section id="pricing" className="shell pt-30">
+    <section id="pricing" className="shell pt-20 sm:pt-30">
       <Reveal variant="rise">
         <div className="mb-10 flex flex-col items-center gap-3.5 text-center">
           <h2 className="font-display text-[clamp(36px,5vw,52px)] leading-[1.02] tracking-[-0.01em]">

@@ -18,7 +18,7 @@ const FIELD =
 
 export function BookCall() {
   return (
-    <section id="book" className="shell grid gap-8 pt-30 lg:grid-cols-12">
+    <section id="book" className="shell grid gap-8 pt-20 sm:pt-30 lg:grid-cols-12">
       <div className="flex min-w-0 flex-col gap-9 lg:col-span-6 lg:pr-8">
         <Reveal variant="rise">
           <div className="flex flex-col gap-3.5">
