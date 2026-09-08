@@ -2,8 +2,6 @@
 
 import { Reveal } from "./reveal";
 import { pressLogos } from "@/content/landing";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 export function Hero() {
   return (
@@ -13,37 +11,39 @@ export function Hero() {
     >
       <div className="flex flex-col justify-center gap-7 pt-12 sm:pt-20 lg:col-span-6 lg:min-h-[min(760px,88vh)]">
         <Reveal variant="rise">
-          <h1 className="font-display m-0 text-[clamp(52px,6.4vw,104px)] leading-[0.94] tracking-[-0.02em]">
-            Automated Attention
+          <h1 className="font-display m-0 text-[clamp(44px,5.4vw,88px)] leading-[0.96] tracking-[-0.02em]">
+            AI creator accounts that post and grow on real devices
           </h1>
         </Reveal>
 
         <Reveal variant="rise" delay={0.08}>
-          <p className="max-w-[34ch] text-[19px] leading-[1.55] text-muted-foreground">
-            Scale your distribution with agentic social accounts. Hosted on real
-            US devices, posting daily, learning from what performs.
+          {/* Audience and payoff in one line a cold visitor can repeat back:
+              who it is for, then what they get, with no creator payroll as
+              the close. */}
+          <p className="max-w-[44ch] text-[19px] leading-[1.55] text-muted-foreground">
+            For brands and agencies that need distribution without a creator
+            team.{" "}
+            <span className="font-medium text-foreground">
+              Accounts posting daily on real US phones, reviewed by humans.
+            </span>
           </p>
         </Reveal>
 
         <Reveal variant="rise" delay={0.14}>
-          <form
-            className="flex max-w-[440px] flex-col gap-2 min-[360px]:flex-row"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <Input
-              type="email"
-              required
-              aria-label="Work email"
-              placeholder="you@company.com"
-              className="h-auto min-w-0 flex-1 rounded border-[#262626] bg-[#0a0a0a] px-3.5 py-3 text-[14.5px] md:text-[14.5px]"
-            />
-            <Button
-              type="submit"
-              className="h-auto shrink-0 rounded bg-[#ededed] px-5 py-3 text-[14.5px] font-medium text-black hover:bg-white"
+          <div className="flex flex-col gap-2.5 min-[360px]:flex-row">
+            <a
+              href="#book"
+              className="flex h-[46px] items-center justify-center rounded bg-[#ededed] px-6 text-[14.5px] font-medium whitespace-nowrap text-black transition-colors hover:bg-white"
             >
-              Free audit call
-            </Button>
-          </form>
+              Book a call
+            </a>
+            <a
+              href="#pricing"
+              className="flex h-[46px] items-center justify-center rounded px-6 text-[14.5px] font-medium whitespace-nowrap text-[#ededed] shadow-[inset_0_0_0_1px_#2a2a2a] transition-colors hover:bg-[#141414]"
+            >
+              See pricing
+            </a>
+          </div>
         </Reveal>
 
         <Reveal variant="fade" delay={0.2}>
@@ -51,18 +51,23 @@ export function Hero() {
               is a fixed-height box and the logo contains within it, so the
               relative sizing from the design survives the logos scaling down
               when a column gets narrow. */}
-          <div className="grid grid-cols-2 items-center gap-x-6 gap-y-5 pt-6 sm:grid-cols-4">
-            {pressLogos.map((logo) => (
-              <div key={logo.alt} className="flex h-[30px] items-center">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  style={{ maxHeight: logo.h }}
-                  className="w-auto max-w-full object-contain object-left opacity-60"
-                />
-              </div>
-            ))}
+          <div className="flex flex-col gap-4 pt-6">
+            <span className="font-mono text-[11px] tracking-[0.08em] text-dim uppercase">
+              Featured in
+            </span>
+            <div className="grid grid-cols-2 items-center gap-x-6 gap-y-5 sm:grid-cols-4">
+              {pressLogos.map((logo) => (
+                <div key={logo.alt} className="flex h-[30px] items-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    style={{ maxHeight: logo.h }}
+                    className="w-auto max-w-full object-contain object-left"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </Reveal>
       </div>

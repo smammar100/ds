@@ -33,7 +33,7 @@ export const capabilities: Capability[] = [
     image: "/assets/cap-personas.jpg",
     alt: "Persona profile with demographic and interest tags",
     tag: "Define",
-    body: "Every synthetic influencer needs consistent patterns. Define who they are and what their background is for content that persists their character.",
+    body: "Every synthetic influencer needs consistent patterns. Define who they are and where they come from, so every post persists that character.",
   },
   {
     title: "Workflow builder",
@@ -59,6 +59,8 @@ export type Plan = {
   price: string;
   unit: string;
   cta: string;
+  /** The buying unit, spelled out on the card instead of only in the FAQ. */
+  terms: string;
   featured: boolean;
   listLabel: string;
   features: string[];
@@ -72,6 +74,7 @@ export const plans: Plan[] = [
     price: "$150",
     unit: "/account per month",
     cta: "Get started",
+    terms: "10-account minimum. Billed monthly, cancel anytime.",
     featured: false,
     listLabel: "Stand out features",
     features: [
@@ -89,6 +92,7 @@ export const plans: Plan[] = [
     price: "$250",
     unit: "/account per month",
     cta: "Book a call",
+    terms: "Access approved on a call. 10-account minimum.",
     featured: true,
     listLabel: "Adds to hosted slot",
     features: [
@@ -102,9 +106,10 @@ export const plans: Plan[] = [
     name: "Managed Service",
     glyph: "team",
     who: "For teams ready to scale the whole operation",
-    price: "Quoted",
-    unit: "on a call",
+    price: "from $4,500",
+    unit: "/month",
     cta: "Book a call",
+    terms: "Floor is 30 accounts. Scoped to your volume on the call.",
     featured: false,
     listLabel: "Stand out features",
     features: [
@@ -146,12 +151,36 @@ export const faqs: Faq[] = [
     list: [],
   },
   {
+    q: "What happens if an account gets banned?",
+    a: [
+      "Platforms suspend accounts, and anyone who tells you otherwise is selling you something. If a hosted account is banned while we are operating it inside our acceptable use rules, we replace it and warm the new one at no charge to you.",
+      "Warming is the reason the replacement is not instant: a brand new account that posts like an established one is the fastest way to get suspended again. The replacement joins your fleet once it behaves like an ordinary phone in ordinary use.",
+    ],
+    list: [],
+  },
+  {
+    q: "Who owns the accounts and the content?",
+    a: [
+      "You do. The accounts operated under your subscription are yours, and so is every asset produced for them. We take no license to your content beyond what running the service requires.",
+      "If you cancel, we hand over the credentials for the accounts you own and delete our copies within 90 days. There is no exit fee and nothing is held hostage.",
+    ],
+    list: [],
+  },
+  {
+    q: "What is your refund and cancellation policy?",
+    a: [
+      "Cancel from your account or by email at any time. Cancellation takes effect at the end of the period you have already paid for, and you are never billed again after that.",
+      "We do not pro-rata refund a period that has already started, because the device slot is reserved and staffed for that month. Banned accounts are replaced free rather than refunded.",
+    ],
+    list: [],
+  },
+  {
     q: "How much does it cost?",
     a: [],
     list: [
       "Hosted Account Slot is $150 per account per month, with a 10-account minimum. A dedicated slot on a real US device; you bring the content.",
       "Content Agent is $250 per account per month, in research preview. Everything in a hosted slot, with agentic content operations running it; access is approved on a call.",
-      "Managed Service is scoped on a call. Done-for-you content operations with a dedicated strategist and creator team.",
+      "Managed Service starts at $4,500 per month, a floor of 30 accounts. Done-for-you content operations with a dedicated strategist and creator team, scoped to your volume on the call.",
     ],
   },
 ];

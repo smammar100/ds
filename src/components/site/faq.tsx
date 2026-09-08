@@ -10,7 +10,7 @@ export function Faq() {
             Frequently asked
           </h2>
           <p className="text-[15px] leading-[1.6] text-dim">
-            Questions from audit calls this quarter.
+            The questions buyers ask us before they sign.
           </p>
         </div>
       </Reveal>

@@ -1,10 +1,11 @@
 import { FooterFx } from "./footer-fx";
 
 const LINKS = [
-  { href: "#docs", label: "Docs" },
-  { href: "#changelog", label: "Changelog" },
-  { href: "#terms", label: "Terms" },
-  { href: "#contact", label: "Contact" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#faq", label: "FAQ" },
+  { href: "/privacy/", label: "Privacy" },
+  { href: "/terms/", label: "Terms" },
+  { href: "mailto:hello@doublespeed.ai", label: "Contact" },
 ];
 
 const MARKS = [

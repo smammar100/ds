@@ -107,18 +107,23 @@ export function Pricing() {
                   </div>
                 </div>
 
-                <div className="relative flex min-h-12 items-baseline gap-1.5">
-                  <span
-                    className={cn(
-                      "font-medium tracking-[-0.015em] tabular-nums",
-                      plan.featured ? "text-[40px]" : "text-[32px]",
-                    )}
-                  >
-                    {plan.price}
-                  </span>
-                  <span className="text-[17px] font-medium text-[#858585]">
-                    {plan.unit}
-                  </span>
+                <div className="relative flex flex-col gap-2">
+                  <div className="flex min-h-12 items-baseline gap-1.5">
+                    <span
+                      className={cn(
+                        "font-medium tracking-[-0.015em] tabular-nums",
+                        plan.featured ? "text-[40px]" : "text-[32px]",
+                      )}
+                    >
+                      {plan.price}
+                    </span>
+                    <span className="text-[17px] font-medium text-[#858585]">
+                      {plan.unit}
+                    </span>
+                  </div>
+                  <p className="min-h-10 text-[13.5px] leading-[1.45] text-[#858585]">
+                    {plan.terms}
+                  </p>
                 </div>
 
                 <a
@@ -164,6 +169,16 @@ export function Pricing() {
           </Reveal>
         ))}
       </div>
+
+      {/* The de-risking a five-figure decision needs, printed rather than
+          left for the buyer to ask about on the call. */}
+      <Reveal variant="fade" delay={0.12}>
+        <p className="mt-7 text-center text-sm leading-[1.6] text-muted-foreground">
+          Banned hosted accounts are replaced free. Cancel before your renewal
+          date and you are not billed again. You own the accounts and the
+          content.
+        </p>
+      </Reveal>
     </section>
   );
 }
