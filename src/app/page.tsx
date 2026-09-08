@@ -1,31 +1,46 @@
-import { SiteHeader } from "@/components/site/site-header";
-import { Hero } from "@/components/site/hero";
-import { ProductDemo } from "@/components/site/product-demo";
-import { Bento } from "@/components/site/bento";
-import { NicheGrid } from "@/components/site/niche-grid";
-import { Capabilities } from "@/components/site/capabilities";
+import type { Metadata } from "next";
 import { Pricing } from "@/components/site/pricing";
 import { BookCall } from "@/components/site/book-call";
-import { Faq } from "@/components/site/faq";
-import { ClosingCta } from "@/components/site/closing-cta";
-import { SiteFooter } from "@/components/site/site-footer";
+import { NicheGrid } from "@/components/site/niche-grid";
+import { stats } from "@/content/v2";
+import { V2Faq } from "@/components/v2/faq";
+import { PressMarquee } from "@/components/v2/press-fx";
+import { CaseStudiesGallery } from "@/components/v2/case-studies";
+import {
+  V2Closing,
+  V2Footer,
+  V2Header,
+  V2Hero,
+  V2RealPhones,
+  V2WhatYouGet,
+} from "@/components/v2/sections";
 
+export const metadata: Metadata = {
+  title: "doublespeed — AI creator accounts on real devices",
+  description:
+    "AI creator accounts that post daily on real US phones, reviewed by humans. For brands and agencies that need distribution without a creator team.",
+};
+
+/** The landing page: the revised wireframe, section for section. */
 export default function Home() {
   return (
     <div className="min-h-screen bg-black">
-      <SiteHeader />
+      <V2Header />
       <main>
-        <Hero />
-        <ProductDemo />
-        <Bento />
-        <NicheGrid />
-        <Capabilities />
+        <V2Hero />
+        <PressMarquee />
+        <V2RealPhones />
+        <V2WhatYouGet />
+        <NicheGrid reel cta={{ label: "Book a call", href: "#book" }} />
+        <CaseStudiesGallery />
         <Pricing />
-        <BookCall />
-        <Faq />
-        <ClosingCta />
+        <V2Faq />
+        <div className="pb-20">
+          <BookCall stats={stats} />
+        </div>
+        <V2Closing />
       </main>
-      <SiteFooter />
+      <V2Footer />
     </div>
   );
 }

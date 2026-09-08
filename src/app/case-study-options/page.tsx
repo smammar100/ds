@@ -64,7 +64,7 @@ export default function CaseStudyOptions() {
             Internal · case study section
           </span>
           <h1 className="font-display text-[clamp(30px,3.6vw,42px)] leading-[1.05] tracking-[-0.01em]">
-            Six options
+            Seven options
           </h1>
           <nav className="flex gap-4 text-[14px] text-muted-foreground">
             {OPTIONS.map((o) => (

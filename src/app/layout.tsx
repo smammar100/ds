@@ -20,9 +20,9 @@ const bodoni = Bodoni_Moda({
 });
 
 export const metadata: Metadata = {
-  title: "doublespeed — Automated Attention",
+  title: "doublespeed — AI creator accounts on real devices",
   description:
-    "Scale your distribution with agentic social accounts. Hosted on real US devices, posting daily, learning from what performs.",
+    "AI creator accounts that post daily on real US phones, reviewed by humans. For brands and agencies that need distribution without a creator team.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

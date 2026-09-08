@@ -509,3 +509,70 @@ export function CaseStudiesFeaturedRail() {
     </section>
   );
 }
+
+/* ------------------------------------------------------------------ */
+/* G. Gallery: three image cards, category and one-line story           */
+/* ------------------------------------------------------------------ */
+
+export function CaseStudiesGallery() {
+  const picks = [featured, ...rest.slice(0, 2)];
+  return (
+    <section className="shell flex flex-col gap-10 py-20">
+      <Reveal variant="rise">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between sm:gap-10">
+          <div className="flex flex-col gap-2">
+            <h2 className="font-display text-[clamp(30px,3.6vw,42px)] leading-[1.05] tracking-[-0.01em] text-balance">
+              Case studies from real networks.
+            </h2>
+            <p className="max-w-[60ch] text-[17px] leading-[1.5] text-muted-foreground">
+              See how brands across oral care, fitness, dating and edtech grow
+              on doublespeed. Every number dated, measured from live analytics.
+            </p>
+          </div>
+          <a
+            href="/case-studies"
+            className="inline-flex h-11 w-fit shrink-0 items-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-4 text-[14.5px] font-medium whitespace-nowrap text-foreground backdrop-blur transition-colors hover:bg-white/10"
+          >
+            View all case studies
+            <span aria-hidden className="text-muted-foreground">↗</span>
+          </a>
+        </div>
+      </Reveal>
+
+      <div className="grid gap-5 md:grid-cols-3">
+        {picks.map((s, i) => (
+          <Reveal key={s.slug} variant="rise" delay={0.06 + i * 0.06}>
+            <a
+              href={caseStudyHref(s.slug)}
+              className="group relative block aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-surface md:aspect-[1.4/1]"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={s.image}
+                alt=""
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/10" />
+
+              <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1.5 p-6">
+                <span className="text-[17px] font-semibold tracking-[-0.01em] text-white">
+                  {s.category}
+                </span>
+                <span className="max-w-[34ch] text-[15px] leading-[1.45] text-white/75">
+                  {s.title}
+                </span>
+                <span className="mt-2 flex items-baseline gap-2">
+                  <span className="font-display text-[26px] leading-none tracking-[-0.02em] text-white tabular-nums">
+                    {s.metric}
+                  </span>
+                  <span className="text-[12.5px] text-white/60">{s.metricLabel}</span>
+                </span>
+              </div>
+            </a>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}

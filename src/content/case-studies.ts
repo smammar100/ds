@@ -13,6 +13,8 @@ export type CaseStudy = {
   receipt: string;
   /** Top posts by views, as shown on the study. */
   posts: string[];
+  /** TODO: placeholder art from Unsplash until the real, blurred assets exist. */
+  image: string;
   featured?: boolean;
 };
 
@@ -26,6 +28,7 @@ export const caseStudies: CaseStudy[] = [
     metricLabel: "views in 4 weeks",
     receipt: "30 accounts · 8,394 posts over 148 days · 8 posts over 1M views",
     posts: ["5.2M", "3.4M", "2.6M"],
+    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=70",
     featured: true,
   },
   {
@@ -37,6 +40,7 @@ export const caseStudies: CaseStudy[] = [
     metricLabel: "views from 10 accounts in 4 months",
     receipt: "$0.10 best-cycle CPM · 15.3M views in one month · 5 posts over 1M",
     posts: ["2.7M", "1M+", "1M+"],
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=70",
   },
   {
     slug: "running",
@@ -47,6 +51,7 @@ export const caseStudies: CaseStudy[] = [
     metricLabel: "CPM in the first billing cycle",
     receipt: "15.1M views in 31 days on $1,350 · 4 posts over 1M · 6.2% engagement",
     posts: ["2.1M", "1.9M", "1.4M"],
+    image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=1200&q=70",
   },
   {
     slug: "local-discovery",
@@ -57,6 +62,7 @@ export const caseStudies: CaseStudy[] = [
     metricLabel: "views in 9 weeks",
     receipt: "114 accounts · 12.3K posts · 990 posts over 10K",
     posts: ["427K", "420K", "100K+"],
+    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1200&q=70",
   },
   {
     slug: "astrology",
@@ -67,6 +73,7 @@ export const caseStudies: CaseStudy[] = [
     metricLabel: "views in 4 weeks",
     receipt: "One account drove 14.6M of 21.3M · 5 posts over 1M",
     posts: ["3.0M", "1.8M+", "1.8M+"],
+    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=70",
   },
   {
     slug: "edtech",
@@ -77,6 +84,7 @@ export const caseStudies: CaseStudy[] = [
     metricLabel: "views in 5 weeks from a 57K start",
     receipt: "46 accounts · 7.1K posts across TikTok and Instagram",
     posts: ["651K", "577K", "522K"],
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=70",
   },
   {
     slug: "wellness",
@@ -87,6 +95,7 @@ export const caseStudies: CaseStudy[] = [
     metricLabel: "views in 9 weeks from zero",
     receipt: "11 accounts · 3 posts over 1M · 10.6% engagement",
     posts: ["2.1M", "1.2M", "1.1M"],
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=70",
   },
   {
     slug: "fandom",
@@ -97,6 +106,7 @@ export const caseStudies: CaseStudy[] = [
     metricLabel: "engagement rate",
     receipt: "13 accounts · 1.39M likes · 12.1M total views",
     posts: ["1.3M"],
+    image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=70",
   },
 ];
 
