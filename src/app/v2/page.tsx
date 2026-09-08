@@ -4,13 +4,13 @@ import { BookCall } from "@/components/site/book-call";
 import { NicheGrid } from "@/components/site/niche-grid";
 import { stats } from "@/content/v2";
 import { V2Faq } from "@/components/v2/faq";
+import { PressMarquee } from "@/components/v2/press-fx";
 import { CaseStudiesFeaturedRail } from "@/components/v2/case-studies";
 import {
   V2Closing,
   V2Footer,
   V2Header,
   V2Hero,
-  V2Press,
   V2RealPhones,
   V2WhatYouGet,
 } from "@/components/v2/sections";
@@ -28,7 +28,7 @@ export default function V2() {
       <V2Header />
       <main>
         <V2Hero />
-        <V2Press />
+        <PressMarquee />
         <V2RealPhones />
         <V2WhatYouGet />
         <NicheGrid reel cta={{ label: "Book a call", href: "#book" }} />

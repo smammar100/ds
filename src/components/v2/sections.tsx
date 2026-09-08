@@ -1,11 +1,11 @@
 import { Reveal } from "@/components/site/reveal";
 import { FooterFx } from "@/components/site/footer-fx";
 import { ReelCard } from "./reel-card";
+import { FleetLive } from "./fleet-fx";
 import {
   closing,
   footerColumns,
   hero,
-  press,
   realPhones,
   whatYouGet,
 } from "@/content/v2";
@@ -121,9 +121,6 @@ export function V2Hero() {
               </ReelCard>
             ))}
           </div>
-          <figcaption className="text-[14px] font-medium text-foreground">
-            {hero.caption}
-          </figcaption>
         </div>
       </Reveal>
     </section>
@@ -131,67 +128,12 @@ export function V2Hero() {
 }
 
 /** Press logos in a contained panel rather than spread across the page. */
-export function V2Press() {
-  return (
-    <section className="shell flex flex-col items-center gap-6 pt-2 pb-10">
-      {/* One word so the row reads as coverage, not customers or partners. */}
-      <Eyebrow>Press</Eyebrow>
-      {/* Logos spread across the full content width, one per column. */}
-      <ul className="m-0 grid w-full list-none grid-cols-2 items-center gap-x-8 gap-y-6 p-0 sm:grid-cols-4">
-        {press.map((logo) => (
-          <li key={logo.alt} className="flex h-8 items-center justify-center">
-            <a
-              href={logo.href}
-              className="flex h-full items-center opacity-85 transition-opacity hover:opacity-100"
-              aria-label={`${logo.alt} coverage of doublespeed`}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                style={{ maxHeight: logo.h }}
-                className="w-auto max-w-full object-contain"
-              />
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
-/** Stand-in for the device rack photo: a fleet board built from the real
-    slot vocabulary, so the panel is informative until the photo exists. */
-function FleetBoard() {
-  const slots = Array.from({ length: 12 }, (_, i) => i + 1);
-  return (
-    <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-hairline bg-surface p-5 sm:p-6">
-      <div className="mb-4 flex items-center justify-between">
-        <Eyebrow>US device fleet</Eyebrow>
-        <span className="flex items-center gap-1.5 text-[12px] text-muted-foreground">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#9be36a]" />
-          posting
-        </span>
-      </div>
-      <div className="grid grid-cols-4 gap-2.5 sm:grid-cols-6">
-        {slots.map((n) => (
-          <div
-            key={n}
-            className="flex aspect-[9/16] flex-col justify-between rounded-md border border-[#262626] bg-black p-1.5"
-          >
-            <span className="h-1 w-3 rounded-full bg-[#2a2a2a]" />
-            <span className="font-mono text-[9px] tracking-[0.04em] text-dim">
-              {String(n).padStart(2, "0")}
-            </span>
-          </div>
-        ))}
-      </div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface to-transparent" />
-    </div>
-  );
-}
-
-export function V2RealPhones() {
+export function V2RealPhones({
+  illustration,
+}: {
+  /** Right-hand panel; defaults to the live fleet board. */
+  illustration?: React.ReactNode;
+}) {
   return (
     <section className="shell grid gap-10 py-20 lg:grid-cols-12 lg:items-center">
       <div className="flex flex-col gap-6 lg:col-span-5">
@@ -228,7 +170,7 @@ export function V2RealPhones() {
         </Reveal>
       </div>
       <Reveal variant="scale" delay={0.1} className="lg:col-span-7">
-        <FleetBoard />
+        {illustration ?? <FleetLive />}
       </Reveal>
     </section>
   );
