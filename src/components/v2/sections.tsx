@@ -134,31 +134,26 @@ export function V2Hero() {
 export function V2Press() {
   return (
     <section className="shell pt-2 pb-10">
-      <div className="rounded-xl border border-hairline bg-surface">
-        <div className="flex flex-col items-center gap-5 px-6 py-7 sm:flex-row sm:gap-8 sm:px-8">
-          <Eyebrow>Featured in</Eyebrow>
-          <ul className="m-0 grid w-full list-none grid-cols-2 items-center gap-x-8 gap-y-5 p-0 sm:flex sm:flex-1 sm:justify-center sm:gap-x-12 lg:gap-x-16">
-            {press.map((logo) => (
-              <li key={logo.alt} className="flex h-7 items-center justify-center">
-                <a
-                  href={logo.href}
-                  className="flex h-full items-center opacity-85 transition-opacity hover:opacity-100"
-                  aria-label={`${logo.alt} coverage of doublespeed`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    style={{ maxHeight: logo.h - 2 }}
-                    className="w-auto max-w-full object-contain"
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-      </div>
+      {/* Logos spread across the full content width, one per column. */}
+      <ul className="m-0 grid list-none grid-cols-2 items-center gap-x-8 gap-y-6 p-0 sm:grid-cols-4">
+        {press.map((logo) => (
+          <li key={logo.alt} className="flex h-8 items-center justify-center">
+            <a
+              href={logo.href}
+              className="flex h-full items-center opacity-85 transition-opacity hover:opacity-100"
+              aria-label={`${logo.alt} coverage of doublespeed`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                style={{ maxHeight: logo.h }}
+                className="w-auto max-w-full object-contain"
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
