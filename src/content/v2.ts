@@ -232,19 +232,28 @@ export const footerColumns = [
     links: [
       { label: "Pricing", href: "#pricing" },
       { label: "FAQ", href: "#faq" },
+      { label: "Case studies", href: "/case-studies" },
+      // TODO: point at the real docs and changelog once they are published.
+      { label: "Docs", href: "#docs" },
+      { label: "Changelog", href: "#changelog" },
       { label: "Log in", href: "#login" },
     ],
   },
   {
-    heading: "Legal",
+    heading: "Learn",
+    // TODO: these are the live site's SEO pages; wire them up when they land.
     links: [
-      { label: "Privacy policy", href: "/privacy/" },
-      { label: "Terms of service", href: "/terms/" },
+      { label: "TikTok automation", href: "#tiktok-automation" },
+      { label: "Instagram automation", href: "#instagram-automation" },
+      { label: "YouTube Shorts automation", href: "#youtube-shorts-automation" },
+      { label: "Facebook automation", href: "#facebook-automation" },
     ],
   },
   {
-    heading: "Community",
+    heading: "Company",
     links: [
+      { label: "Privacy policy", href: "/privacy/" },
+      { label: "Terms of service", href: "/terms/" },
       { label: "Discord", href: "#discord" },
       { label: "Contact", href: "mailto:hello@doublespeed.ai" },
     ],
