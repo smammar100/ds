@@ -13,8 +13,9 @@ export const hero = {
   secondary: { label: "See pricing", href: "#pricing" },
   // The reel is a carousel of personas, switched by the avatars beneath it.
   // Jake's view counts are the figures previously published on doublespeed.ai
-  // (the fourth is their mean). The other two personas use the same kind of
-  // figures as the terminal footage; TODO: replace with real counts.
+  // (the fourth is their mean). Engagement counts and the other two personas
+  // are the same kind of figures the terminal footage shows.
+  // TODO: replace every figure below the view counts with real numbers.
   personas: [
     {
       id: 1,
@@ -23,10 +24,34 @@ export const hero = {
       designation: "Lifestyle · AI persona",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=facearea&facepad=2.5&w=200&h=200&q=80",
       reel: [
-        { poster: "/grid/7.jpg", stat: "312K" },
-        { poster: "/grid/12.jpg", stat: "142K" },
-        { poster: "/grid/21.jpg", stat: "78K" },
-        { poster: "/grid/28.jpg", stat: "177K avg" },
+        {
+          poster: "/grid/7.jpg",
+          stat: "312K",
+          likes: "12.4K",
+          comments: "187",
+          shares: "402",
+        },
+        {
+          poster: "/grid/12.jpg",
+          stat: "142K",
+          likes: "5.8K",
+          comments: "94",
+          shares: "176",
+        },
+        {
+          poster: "/grid/21.jpg",
+          stat: "78K",
+          likes: "3.1K",
+          comments: "51",
+          shares: "88",
+        },
+        {
+          poster: "/grid/28.jpg",
+          stat: "177K avg",
+          likes: "7.1K",
+          comments: "110",
+          shares: "222",
+        },
       ],
     },
     {
@@ -36,10 +61,34 @@ export const hero = {
       designation: "Fitness · 142K monthly views",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2.5&w=200&h=200&q=80",
       reel: [
-        { poster: "/grid/3.jpg", stat: "124K" },
-        { poster: "/grid/9.jpg", stat: "86K" },
-        { poster: "/grid/15.jpg", stat: "212K" },
-        { poster: "/grid/24.jpg", stat: "158K" },
+        {
+          poster: "/grid/3.jpg",
+          stat: "124K",
+          likes: "5.1K",
+          comments: "43",
+          shares: "89",
+        },
+        {
+          poster: "/grid/9.jpg",
+          stat: "86K",
+          likes: "3.2K",
+          comments: "27",
+          shares: "61",
+        },
+        {
+          poster: "/grid/15.jpg",
+          stat: "212K",
+          likes: "9.4K",
+          comments: "88",
+          shares: "154",
+        },
+        {
+          poster: "/grid/24.jpg",
+          stat: "158K",
+          likes: "6.7K",
+          comments: "62",
+          shares: "118",
+        },
       ],
     },
     {
@@ -49,10 +98,34 @@ export const hero = {
       designation: "Fashion · 210K monthly views",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&facepad=2.5&w=200&h=200&q=80",
       reel: [
-        { poster: "/grid/31.jpg", stat: "96K" },
-        { poster: "/grid/33.jpg", stat: "310K" },
-        { poster: "/grid/36.jpg", stat: "54K" },
-        { poster: "/grid/40.jpg", stat: "131K" },
+        {
+          poster: "/grid/31.jpg",
+          stat: "96K",
+          likes: "4.2K",
+          comments: "38",
+          shares: "71",
+        },
+        {
+          poster: "/grid/33.jpg",
+          stat: "310K",
+          likes: "13.1K",
+          comments: "204",
+          shares: "388",
+        },
+        {
+          poster: "/grid/36.jpg",
+          stat: "54K",
+          likes: "2.4K",
+          comments: "19",
+          shares: "43",
+        },
+        {
+          poster: "/grid/40.jpg",
+          stat: "131K",
+          likes: "5.6K",
+          comments: "47",
+          shares: "96",
+        },
       ],
     },
   ],

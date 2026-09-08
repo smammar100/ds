@@ -72,7 +72,7 @@ export function V2Header() {
 
 export function V2Hero() {
   return (
-    <section id="top" className="shell flex flex-col items-center gap-10 py-10 text-center">
+    <section id="top" className="shell flex flex-col items-center gap-10 pt-10 pb-16 text-center">
       <div className="flex max-w-[1040px] flex-col items-center gap-5">
         <Reveal variant="rise">
           <h1 className="font-display m-0 max-w-[24ch] text-[clamp(40px,5.6vw,72px)] leading-[1] tracking-[-0.02em] text-balance">

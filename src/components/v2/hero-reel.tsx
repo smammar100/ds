@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Eye } from "lucide-react";
+import { Eye, Heart, MessageCircle, Send } from "lucide-react";
 import AvatarGroup from "@/components/ui/avatar-group";
 import { ReelCard } from "./reel-card";
 import { hero } from "@/content/v2";
@@ -42,6 +42,24 @@ export function HeroReel() {
             <span className="flex items-center gap-1.5 text-[15px] font-semibold tabular-nums">
               <Eye className="h-4 w-4" strokeWidth={2} aria-hidden />
               {post.stat}
+            </span>
+            {/* The engagement row the terminal shows under each post. */}
+            <span className="flex items-center gap-3 text-[11.5px] text-white/65 tabular-nums">
+              <span className="flex items-center gap-1">
+                <Heart className="h-3 w-3" strokeWidth={2} aria-hidden />
+                <span className="sr-only">likes </span>
+                {post.likes}
+              </span>
+              <span className="flex items-center gap-1">
+                <MessageCircle className="h-3 w-3" strokeWidth={2} aria-hidden />
+                <span className="sr-only">comments </span>
+                {post.comments}
+              </span>
+              <span className="flex items-center gap-1">
+                <Send className="h-3 w-3" strokeWidth={2} aria-hidden />
+                <span className="sr-only">shares </span>
+                {post.shares}
+              </span>
             </span>
           </ReelCard>
         ))}

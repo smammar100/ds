@@ -125,6 +125,15 @@ export function ReelCard({
       )}
       style={{ "--gen": `${duration}ms` } as React.CSSProperties}
     >
+      {/* The post's date, carried through generation and onto the result. */}
+      <span className="reel-date absolute top-2.5 left-2.5 z-10 flex items-center gap-1 rounded-[4px] border border-white/15 bg-black/70 px-1.5 py-[3px] font-mono text-[9px] tracking-[0.06em] text-white/80 backdrop-blur-sm">
+        <svg viewBox="0 0 10 10" className="h-2 w-2 fill-none stroke-current stroke-[1.2]" aria-hidden>
+          <rect x="1" y="2" width="8" height="7" rx="1" />
+          <path d="M1 4.5h8M3.5 1v2M6.5 1v2" />
+        </svg>
+        <span suppressHydrationWarning>{date}</span>
+      </span>
+
       {/* Finished post. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -145,13 +154,6 @@ export function ReelCard({
           ref={canvasRef}
           className="reel-mosaic absolute inset-0 h-full w-full [image-rendering:pixelated]"
         />
-        <span className="absolute top-2.5 left-2.5 flex items-center gap-1 rounded-[4px] border border-white/15 bg-black/70 px-1.5 py-[3px] font-mono text-[9px] tracking-[0.06em] text-white/80">
-          <svg viewBox="0 0 10 10" className="h-2 w-2 fill-none stroke-current stroke-[1.2]" aria-hidden>
-            <rect x="1" y="2" width="8" height="7" rx="1" />
-            <path d="M1 4.5h8M3.5 1v2M6.5 1v2" />
-          </svg>
-          <span suppressHydrationWarning>{date}</span>
-        </span>
         <span className="reel-label absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-mono text-[11.5px] font-medium tracking-[0.12em] text-white uppercase">
           Generating
         </span>
