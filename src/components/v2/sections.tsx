@@ -10,6 +10,12 @@ import {
   whatYouGet,
 } from "@/content/v2";
 
+/** The two things the footer says the product is, under the wordmark. */
+const MARKS = [
+  { icon: "/assets/icon-bulk.svg", label: "Bulk content creation" },
+  { icon: "/assets/icon-usdevice.svg", label: "U.S. device deployment" },
+];
+
 const BTN_SOLID =
   "flex h-11 items-center justify-center rounded-md bg-[#ededed] px-5 text-[14.5px] font-medium whitespace-nowrap text-black transition-colors hover:bg-white";
 const BTN_GHOST =
@@ -241,8 +247,19 @@ export function V2Closing() {
 
 export function V2Footer() {
   return (
-    <footer className="pt-6">
-      <div className="shell grid gap-10 py-14 sm:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <footer className="relative overflow-hidden">
+      {/* Dithered wordmark that assembles out of scattered dots on scroll. */}
+      <FooterFx
+        variant="assemble"
+        text="Automating Attention."
+        cell="4"
+        fit="0.96"
+        fit-height="0.3"
+        align="bottom"
+        style={{ position: "absolute", inset: 0 }}
+      />
+
+      <div className="shell relative grid gap-10 pt-12 sm:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div className="flex flex-col items-start gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -250,9 +267,22 @@ export function V2Footer() {
             alt="doublespeed"
             className="block h-5 w-auto"
           />
-          <span className="text-[13.5px] text-muted-foreground">
-            Automating attention.
-          </span>
+          <ul className="m-0 flex list-none flex-col gap-2 p-0">
+            {MARKS.map((mark) => (
+              <li key={mark.label} className="flex items-center gap-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={mark.icon}
+                  alt=""
+                  aria-hidden
+                  className="block h-3.5 w-auto flex-none"
+                />
+                <span className="font-mono text-[11.5px] tracking-[0.06em] text-muted-foreground uppercase">
+                  {mark.label}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
         {footerColumns.map((col) => (
           <div key={col.heading} className="flex flex-col gap-3">
@@ -272,7 +302,9 @@ export function V2Footer() {
           </div>
         ))}
       </div>
-      <div className="shell flex items-center justify-between py-5 text-[12.5px] text-dim">
+
+      {/* The wordmark occupies the space beneath; the legal row sits over it. */}
+      <div className="shell relative flex items-center justify-between pt-8 pb-28 text-[12.5px] text-dim sm:pb-40">
         <span>© 2026 Doublespeed, Inc.</span>
         <span>Real devices. Human review.</span>
       </div>

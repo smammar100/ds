@@ -9,8 +9,10 @@ export const hero = {
   audience:
     "For brands and agencies that need distribution without a creator team.",
   payoff: "30 accounts posting daily. Millions of views. No creator payroll.",
-  primary: { label: "Book a call", href: "#book" },
-  secondary: { label: "See pricing", href: "#pricing" },
+  // TODO: point "Start creating" at the self-serve signup once it exists;
+  // until then it lands on pricing, where the self-serve plan starts.
+  primary: { label: "Start creating", href: "#pricing" },
+  secondary: { label: "Book a call", href: "#book" },
   // The reel is a carousel of personas, switched by the avatars beneath it.
   // Jake's view counts are the figures previously published on doublespeed.ai
   // (the fourth is their mean). Engagement counts and the other two personas
