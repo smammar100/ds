@@ -133,9 +133,11 @@ export function V2Hero() {
 /** Press logos in a contained panel rather than spread across the page. */
 export function V2Press() {
   return (
-    <section className="shell pt-2 pb-10">
+    <section className="shell flex flex-col items-center gap-6 pt-2 pb-10">
+      {/* One word so the row reads as coverage, not customers or partners. */}
+      <Eyebrow>Press</Eyebrow>
       {/* Logos spread across the full content width, one per column. */}
-      <ul className="m-0 grid list-none grid-cols-2 items-center gap-x-8 gap-y-6 p-0 sm:grid-cols-4">
+      <ul className="m-0 grid w-full list-none grid-cols-2 items-center gap-x-8 gap-y-6 p-0 sm:grid-cols-4">
         {press.map((logo) => (
           <li key={logo.alt} className="flex h-8 items-center justify-center">
             <a
