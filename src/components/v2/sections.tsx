@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/site/reveal";
 import { FooterFx } from "@/components/site/footer-fx";
-import { ReelCard } from "./reel-card";
+import { HeroReel } from "./hero-reel";
 import { FleetLive } from "./fleet-fx";
 import {
   closing,
@@ -72,7 +72,7 @@ export function V2Header() {
 
 export function V2Hero() {
   return (
-    <section id="top" className="shell flex flex-col items-center gap-10 pt-16 pb-20 text-center sm:pt-24">
+    <section id="top" className="shell flex flex-col items-center gap-10 py-10 text-center">
       <div className="flex max-w-[1040px] flex-col items-center gap-5">
         <Reveal variant="rise">
           <h1 className="font-display m-0 max-w-[24ch] text-[clamp(40px,5.6vw,72px)] leading-[1] tracking-[-0.02em] text-balance">
@@ -101,27 +101,9 @@ export function V2Hero() {
         </Reveal>
       </div>
 
-      {/* Proof reel: four posts from one persona, each generating in before
-          it resolves. Every card carries its own number so the proof survives
-          being screenshot without the caption. */}
+      {/* Proof reel: a carousel of personas, switched by the avatars. */}
       <Reveal variant="scale" delay={0.2} className="w-full">
-        <div className="flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-            {hero.reel.map((post, i) => (
-              <ReelCard
-                key={post.poster}
-                src={post.poster}
-                delay={200 + i * 650}
-                daysAgo={hero.reel.length - 1 - i}
-              >
-                <span className="text-[12px] text-white/70">{post.label}</span>
-                <span className="text-[15px] font-semibold tabular-nums">
-                  ▶ {post.stat}
-                </span>
-              </ReelCard>
-            ))}
-          </div>
-        </div>
+        <HeroReel />
       </Reveal>
     </section>
   );
@@ -180,7 +162,13 @@ export function V2WhatYouGet() {
   return (
     <section className="shell flex flex-col gap-8 py-20">
       <Reveal variant="rise">
-        <SectionTitle>What you get</SectionTitle>
+        <div className="flex flex-col gap-3">
+          <SectionTitle>What you get</SectionTitle>
+          <p className="max-w-[56ch] text-[16px] leading-[1.55] text-muted-foreground">
+            A content team, a posting schedule and the phones to run them, in
+            one place. You review, the accounts do the rest.
+          </p>
+        </div>
       </Reveal>
       <div className="grid gap-4 md:grid-cols-3">
         {whatYouGet.map((item, i) => (

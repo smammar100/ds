@@ -11,14 +11,50 @@ export const hero = {
   payoff: "30 accounts posting daily. Millions of views. No creator payroll.",
   primary: { label: "Book a call", href: "#book" },
   secondary: { label: "See pricing", href: "#pricing" },
-  // Four posts from one persona. The first three view counts are the figures
-  // previously published on doublespeed.ai; the fourth is their mean, so the
-  // card carries a number without inventing one.
-  reel: [
-    { poster: "/grid/7.jpg", stat: "312K", label: "@jake.rivera" },
-    { poster: "/grid/12.jpg", stat: "142K", label: "@jake.rivera" },
-    { poster: "/grid/21.jpg", stat: "78K", label: "@jake.rivera" },
-    { poster: "/grid/28.jpg", stat: "177K avg", label: "@jake.rivera" },
+  // The reel is a carousel of personas, switched by the avatars beneath it.
+  // Jake's view counts are the figures previously published on doublespeed.ai
+  // (the fourth is their mean). The other two personas use the same kind of
+  // figures as the terminal footage; TODO: replace with real counts.
+  personas: [
+    {
+      id: 1,
+      handle: "@jake.rivera",
+      name: "Jake Rivera",
+      designation: "Lifestyle · AI persona",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=facearea&facepad=2.5&w=200&h=200&q=80",
+      reel: [
+        { poster: "/grid/7.jpg", stat: "312K" },
+        { poster: "/grid/12.jpg", stat: "142K" },
+        { poster: "/grid/21.jpg", stat: "78K" },
+        { poster: "/grid/28.jpg", stat: "177K avg" },
+      ],
+    },
+    {
+      id: 2,
+      handle: "@fit.marcus",
+      name: "Marcus Hale",
+      designation: "Fitness · 142K monthly views",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2.5&w=200&h=200&q=80",
+      reel: [
+        { poster: "/grid/3.jpg", stat: "124K" },
+        { poster: "/grid/9.jpg", stat: "86K" },
+        { poster: "/grid/15.jpg", stat: "212K" },
+        { poster: "/grid/24.jpg", stat: "158K" },
+      ],
+    },
+    {
+      id: 3,
+      handle: "@style.jo",
+      name: "Jo Lindqvist",
+      designation: "Fashion · 210K monthly views",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&facepad=2.5&w=200&h=200&q=80",
+      reel: [
+        { poster: "/grid/31.jpg", stat: "96K" },
+        { poster: "/grid/33.jpg", stat: "310K" },
+        { poster: "/grid/36.jpg", stat: "54K" },
+        { poster: "/grid/40.jpg", stat: "131K" },
+      ],
+    },
   ],
   caption:
     "@jake.rivera, AI persona. 312K, 142K and 78K views in the last 30 days.",
