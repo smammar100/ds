@@ -48,11 +48,11 @@ export function Pricing() {
       <Reveal variant="rise">
         <div className="mb-10 flex flex-col items-center gap-3.5 text-center">
           <h2 className="font-display text-[clamp(36px,5vw,52px)] leading-[1.02] tracking-[-0.01em]">
-            Three ways to run it
+            Pricing
           </h2>
           <p className="max-w-[48ch] text-base leading-[1.6] text-muted-foreground">
-            Start with a hosted slot and bring your own content, hand the
-            content to an agent, or let us run the whole operation.
+            Buy credits and make the content yourself, buy accounts that post it for
+            you, or hand the whole operation to a team.
           </p>
         </div>
       </Reveal>
@@ -127,7 +127,7 @@ export function Pricing() {
                 </div>
 
                 <a
-                  href="#book"
+                  href={plan.href}
                   className={plan.featured ? CTA_SOLID : CTA_GHOST}
                 >
                   {plan.cta}
@@ -174,9 +174,8 @@ export function Pricing() {
           left for the buyer to ask about on the call. */}
       <Reveal variant="fade" delay={0.12}>
         <p className="mt-7 text-center text-sm leading-[1.6] text-muted-foreground">
-          Banned hosted accounts are replaced free. Cancel before your renewal
-          date and you are not billed again. You own the accounts and the
-          content.
+          14-day guarantee on self-serve. Banned hosted accounts replaced free.
+          You own the accounts and the content.
         </p>
       </Reveal>
     </section>

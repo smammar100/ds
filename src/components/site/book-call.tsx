@@ -54,7 +54,7 @@ export function BookCall({ stats = DEFAULT_STATS }: { stats?: Stat[] }) {
             {/* Printing the floor here is what keeps the calendar full of
                 buyers who can actually sign. */}
             <p className="text-[15px] leading-[1.6] font-medium text-foreground">
-              Managed plans start at $4,500/mo.
+              Managed plans start at $13,500/mo.
             </p>
           </div>
         </Reveal>

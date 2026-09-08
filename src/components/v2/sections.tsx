@@ -210,7 +210,7 @@ export function V2Closing() {
       {/* The dithered eye collage from the original close, pointer-cleared
           around the cursor, but ending on the two revenue actions instead of
           an off-site exit. */}
-      <div className="relative flex min-h-[520px] items-center justify-center overflow-hidden rounded-xl bg-black">
+      <div className="relative flex min-h-[390px] items-center justify-center overflow-hidden rounded-xl bg-black">
         <FooterFx
           variant="image-clear"
           src="/assets/eyes-loop.mp4"
@@ -223,7 +223,7 @@ export function V2Closing() {
 
         <Reveal
           variant="rise"
-          className="relative flex flex-col items-center gap-5 px-8 py-24 text-center"
+          className="relative flex flex-col items-center gap-5 px-8 py-16 text-center"
         >
           <h2 className="font-display max-w-[18ch] text-[clamp(36px,4.6vw,60px)] leading-[1.02] tracking-[-0.02em] text-balance">
             {closing.headline}
