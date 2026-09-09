@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
  */
 export function HeroReel() {
   const [activeId, setActiveId] = useState(hero.personas[0].id);
+  const [switched, setSwitched] = useState(false);
   const persona = hero.personas.find((p) => p.id === activeId) ?? hero.personas[0];
 
   return (
@@ -29,6 +30,8 @@ export function HeroReel() {
           <ReelCard
             key={`${persona.id}-${post.poster}`}
             src={post.poster}
+            delay={switched ? i * 140 : 200 + i * 650}
+            duration={switched ? 1100 : 2200}
             daysAgo={persona.reel.length - 1 - i}
           >
             <span className="text-[12px] text-white/70">{persona.handle}</span>
@@ -71,7 +74,11 @@ export function HeroReel() {
           image: p.avatar,
         }))}
         activeId={activeId}
-        onSelect={setActiveId}
+        onSelect={(id) => {
+          if (id === activeId) return;
+          setSwitched(true);
+          setActiveId(id);
+        }}
       />
     </div>
   );

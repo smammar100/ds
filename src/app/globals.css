@@ -225,6 +225,45 @@
   [data-fx].is-armed { opacity: 1; }
 }
 
+/* Reel cards on /v2, staged like the terminal footage:
+   idle (hatched slot) -> generating (black) -> resolving (mosaic
+   sharpening) -> ready (crossfade to the post, border turns green). */
+.reel-card { transition: box-shadow 600ms ease; }
+.reel-card[data-phase="ready"] { box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.75); }
+
+.reel-date { opacity: 0; transition: opacity 300ms ease; }
+.reel-card:not([data-phase="idle"]) .reel-date { opacity: 1; }
+.reel-hatch {
+  background: repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 7px);
+  transition: opacity 300ms ease;
+}
+.reel-card:not([data-phase="idle"]) .reel-hatch { opacity: 0; }
+
+.reel-img, .reel-chrome { opacity: 0; }
+.reel-card[data-phase="ready"] .reel-img { opacity: 1; transition: opacity 520ms ease; }
+.reel-card[data-phase="ready"] .reel-chrome { opacity: 1; transition: opacity 400ms ease 260ms; }
+
+.reel-gen { opacity: 0; }
+.reel-card[data-phase="generating"] .reel-gen,
+.reel-card[data-phase="resolving"] .reel-gen { opacity: 1; }
+/* Fade the whole generation layer out over the finished post rather than cutting. */
+.reel-card[data-phase="ready"] .reel-gen { opacity: 0; transition: opacity 520ms ease; }
+
+.reel-mosaic { opacity: 0; filter: saturate(0.85); }
+.reel-card[data-phase="resolving"] .reel-mosaic,
+.reel-card[data-phase="ready"] .reel-mosaic { opacity: 1; transition: opacity 260ms ease; }
+
+
+.reel-bar { transform: scaleX(0); }
+.reel-card[data-phase="generating"] .reel-bar,
+.reel-card[data-phase="resolving"] .reel-bar { animation: reel-bar var(--gen, 2200ms) steps(30, end) forwards; }
+
+@keyframes reel-bar { to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .reel-bar { animation: none; }
+  .reel-card, .reel-img, .reel-chrome, .reel-gen, .reel-hatch { transition: none; }
+}
+
 /* Fleet illustrations on /v2 (fleet-fx.tsx). */
 .fleet-screen {
   background-image: radial-gradient(rgba(255,255,255,0.5) 0.6px, transparent 0.7px);
