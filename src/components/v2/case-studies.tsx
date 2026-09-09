@@ -553,7 +553,7 @@ export function CaseStudiesGallery() {
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 via-45% to-black/15" />
 
               <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1.5 p-6">
                 <span className="text-[17px] font-semibold tracking-[-0.01em] text-white">
@@ -563,7 +563,7 @@ export function CaseStudiesGallery() {
                   {s.title}
                 </span>
                 <span className="mt-2 flex items-baseline gap-2">
-                  <span className="font-display text-[26px] leading-none tracking-[-0.02em] text-white tabular-nums">
+                  <span className="font-display text-[26px] leading-none tracking-[-0.02em] text-white">
                     {s.metric}
                   </span>
                   <span className="text-[12.5px] text-white/60">{s.metricLabel}</span>

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
-import { niches } from "@/content/v2";
+import { gridPosters, niches } from "@/content/v2";
 
 const COUNT = 36;
 
@@ -141,7 +141,7 @@ export function NicheGrid({
             >
               <div
                 className="ng-inner relative h-[200%] w-[200%] bg-cover bg-center"
-                style={{ backgroundImage: `url(/grid/${i + 1}.jpg)` }}
+                style={{ backgroundImage: `url(${gridPosters[i % gridPosters.length]})` }}
               />
               {reel && (
                 <>

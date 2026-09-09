@@ -8,7 +8,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-mono-face);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -130,7 +130,7 @@
 }
 /* ---------------------------------------------------------------------------
    doublespeed brand layer
-   Pure-black canvas, Geist for prose, Moret/Bodoni Moda for display headings.
+   Pure-black canvas, PP Neue Montreal for prose, PP Editorial Old for display.
    These override the stock shadcn dark tokens; the site always renders dark.
 --------------------------------------------------------------------------- */
 
@@ -181,12 +181,11 @@
   }
 }
 
-/* Display headings use the licensed Moret variable face from Typekit, with
-   Bodoni Moda as the fallback while it loads or if the kit is unavailable. */
+/* Display headings use PP Editorial Old Ultralight, the same display serif the
+   product ships. Upright only, never mixed with the sans inside one heading. */
 @utility font-display {
-  font-family: "moret-variable", var(--font-bodoni), "Bodoni Moda", serif;
-  font-weight: 600;
-  font-variation-settings: "ital" 0, "wght" 600;
+  font-family: var(--font-editorial), Georgia, "Times New Roman", serif;
+  font-weight: 200;
 }
 
 @utility shell {
@@ -224,48 +223,6 @@
 @media (prefers-reduced-motion: reduce) {
   .ds-dot { animation: none; opacity: 1; }
   [data-fx].is-armed { opacity: 1; }
-}
-
-/* Reel cards on /v2, staged like the terminal footage:
-   idle (hatched slot) -> generating (black, label) -> resolving (mosaic
-   sharpening) -> ready (crossfade to the post, border turns green). */
-.reel-card { transition: box-shadow 600ms ease; }
-.reel-card[data-phase="ready"] { box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.75); }
-
-.reel-date { opacity: 0; transition: opacity 300ms ease; }
-.reel-card:not([data-phase="idle"]) .reel-date { opacity: 1; }
-.reel-hatch {
-  background: repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 7px);
-  transition: opacity 300ms ease;
-}
-.reel-card:not([data-phase="idle"]) .reel-hatch { opacity: 0; }
-
-.reel-img, .reel-chrome { opacity: 0; }
-.reel-card[data-phase="ready"] .reel-img { opacity: 1; transition: opacity 520ms ease; }
-.reel-card[data-phase="ready"] .reel-chrome { opacity: 1; transition: opacity 400ms ease 260ms; }
-
-.reel-gen { opacity: 0; }
-.reel-card[data-phase="generating"] .reel-gen,
-.reel-card[data-phase="resolving"] .reel-gen { opacity: 1; }
-/* Fade the whole generation layer out over the finished post rather than cutting. */
-.reel-card[data-phase="ready"] .reel-gen { opacity: 0; transition: opacity 520ms ease; }
-
-.reel-mosaic { opacity: 0; filter: saturate(0.85); }
-.reel-card[data-phase="resolving"] .reel-mosaic,
-.reel-card[data-phase="ready"] .reel-mosaic { opacity: 1; transition: opacity 260ms ease; }
-
-.reel-label::after { content: ""; animation: reel-dots 900ms steps(3, end) infinite; }
-.reel-card[data-phase="resolving"] .reel-label { opacity: 0; transition: opacity 240ms ease; }
-
-.reel-bar { transform: scaleX(0); }
-.reel-card[data-phase="generating"] .reel-bar,
-.reel-card[data-phase="resolving"] .reel-bar { animation: reel-bar var(--gen, 2200ms) steps(30, end) forwards; }
-
-@keyframes reel-dots { 0% { content: ""; } 33% { content: "."; } 66% { content: ".."; } }
-@keyframes reel-bar { to { transform: scaleX(1); } }
-@media (prefers-reduced-motion: reduce) {
-  .reel-label::after, .reel-bar { animation: none; }
-  .reel-card, .reel-img, .reel-chrome, .reel-gen, .reel-hatch { transition: none; }
 }
 
 /* Fleet illustrations on /v2 (fleet-fx.tsx). */

@@ -1,46 +1,74 @@
 import { Reveal } from "./reveal";
 import { plans, type Plan } from "@/content/landing";
-import { cn } from "@/lib/utils";
 
+/**
+ * The plan glyphs build on each other: a phone for a hosted slot, a phone plus
+ * the agent mark for Content Agent, and both plus a person for Managed.
+ */
 function Glyph({ name }: { name: Plan["glyph"] }) {
-  const common = {
-    viewBox: "0 0 14 14",
-    width: 14,
-    height: 14,
-    fill: "none" as const,
-    stroke: "currentColor",
-  };
-  if (name === "phone")
-    return (
-      <svg {...common} strokeWidth={1.4}>
-        <rect x="3.5" y="1" width="7" height="12" rx="1.5" />
-        <path d="M6 3h2" />
-      </svg>
-    );
-  if (name === "agent")
-    return (
-      <svg
-        {...common}
-        strokeWidth={1.5}
+  // A phone slot, a monitor running the agent, and a team behind it.
+  const phone = (
+    <svg viewBox="0 0 38 58" className="h-[58px] w-[38px]" aria-hidden>
+      <rect width="38" height="58" rx="6" className="fill-white" />
+      <rect x="13" y="6" width="12" height="2.5" rx="1.25" className="fill-[#0a0a0a]" />
+    </svg>
+  );
+  const monitor = (
+    <svg viewBox="0 0 48 58" className="h-[58px] w-[48px]" aria-hidden>
+      <rect width="48" height="38" rx="6" className="fill-white" />
+      <path
+        d="M17 11l6 8-6 8M26 11l6 8-6 8"
+        className="fill-none stroke-[#0a0a0a]"
+        strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
-      >
-        <path d="M2 3l4 4-4 4M7 3l4 4-4 4" />
-      </svg>
-    );
-  return (
-    <svg {...common} strokeWidth={1.4}>
-      <circle cx="5" cy="4.5" r="2.2" />
-      <circle cx="10" cy="5.5" r="1.7" />
-      <path d="M1 12c0-2.4 1.8-4 4-4s4 1.6 4 4M9.5 8.5c1.9 0 3.5 1.3 3.5 3.2" />
+      />
+      <rect x="18" y="38" width="12" height="10" className="fill-white" />
+      <rect x="9" y="48" width="30" height="7" rx="3" className="fill-white" />
     </svg>
+  );
+  const team = (
+    <svg viewBox="0 0 74 58" className="h-[58px] w-[74px]" aria-hidden>
+      {/* two people behind, one in front */}
+      <g className="fill-[#8b8b8f]">
+        <circle cx="17" cy="20" r="10" />
+        <path d="M17 33c9 0 16 6.5 16 16v9H1v-9c0-9.5 7-16 16-16Z" />
+        <circle cx="57" cy="20" r="10" />
+        <path d="M57 33c9 0 16 6.5 16 16v9H41v-9c0-9.5 7-16 16-16Z" />
+      </g>
+      <g className="fill-[#0a0a0a]">
+        <circle cx="37" cy="17" r="14" />
+        <path d="M37 33c12 0 21 8 21 20v5H16v-5c0-12 9-20 21-20Z" />
+      </g>
+      <g className="fill-white">
+        <circle cx="37" cy="17" r="11.5" />
+        <path d="M37 34.5c10.5 0 18.5 7 18.5 17.5V58h-37v-6c0-10.5 8-17.5 18.5-17.5Z" />
+      </g>
+    </svg>
+  );
+  const plus = <span className="text-[24px] leading-none font-light text-white/85">+</span>;
+
+  return (
+    <div className="flex h-[58px] items-center gap-2.5" aria-hidden>
+      {phone}
+      {name !== "phone" && (
+        <>
+          {plus}
+          {monitor}
+        </>
+      )}
+      {name === "team" && (
+        <>
+          {plus}
+          {team}
+        </>
+      )}
+    </div>
   );
 }
 
-const CTA_GHOST =
-  "flex h-[46px] items-center justify-center rounded-lg bg-[#1a1a1c] text-base font-medium tracking-[-0.01em] text-[#ededed] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),0_6px_12px_rgba(0,0,0,0.3)] transition-colors hover:bg-[#232326]";
-const CTA_SOLID =
-  "flex h-[46px] items-center justify-center rounded-lg bg-[rgba(255,255,255,0.94)] text-base font-medium tracking-[-0.01em] text-[#0a0d14] shadow-[inset_0_0_0_2px_rgba(0,0,0,0.1),0_0_0_2px_rgba(255,255,255,0.07),inset_0_2px_3px_-1px_rgba(255,255,255,0.3),0_7px_16px_-5px_rgba(0,0,0,0.45)] transition-colors hover:bg-white";
+const CTA =
+  "flex h-[48px] items-center justify-center rounded-[10px] bg-white text-[15px] font-medium tracking-[-0.01em] text-[#0a0a0a] transition-colors hover:bg-white/90";
 
 export function Pricing() {
   return (
@@ -51,121 +79,70 @@ export function Pricing() {
             Pricing
           </h2>
           <p className="max-w-[48ch] text-base leading-[1.6] text-muted-foreground">
-            Buy credits and make the content yourself, buy accounts that post it for
-            you, or hand the whole operation to a team.
+            Buy accounts that post for you, or hand the whole operation to a
+            dedicated strategist and creator team.
           </p>
         </div>
       </Reveal>
 
       <div className="grid items-stretch gap-5 md:grid-cols-3">
         {plans.map((plan, i) => (
-          <Reveal
-            key={plan.name}
-            variant="scale"
-            delay={i * 0.07}
-            className="h-full"
-          >
-            <div className="h-full rounded-[10px] transition-transform duration-200 ease-out hover:z-[2] hover:scale-[1.035]">
-              <div className="bg-surface relative flex h-full flex-col gap-9 overflow-hidden rounded-[10px] p-8">
-                {plan.featured && (
-                  <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[10px]">
-                    <div className="absolute -top-30 -left-[90px] h-[280px] w-[340px] bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,255,255,0.34)_0%,rgba(255,255,255,0)_100%)]" />
-                  </div>
-                )}
+          <Reveal key={plan.name} variant="scale" delay={i * 0.07} className="h-full">
+            <article className="relative flex h-full flex-col gap-5 rounded-[14px] border border-hairline bg-surface p-7">
+              {plan.badge && (
+                <span className="absolute top-5 right-5 rounded-full border border-white/25 px-2.5 py-1 font-mono text-[10px] tracking-[0.1em] text-white/75 uppercase">
+                  {plan.badge}
+                </span>
+              )}
 
-                <div className="relative flex flex-col gap-7">
-                  <div className="flex items-start justify-between">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-[7px] bg-gradient-to-b from-[#3a3a3d] to-[#232325] text-[#d4d4d8] shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_0_0_1.5px_rgba(0,0,0,0.45)]">
-                      <Glyph name={plan.glyph} />
-                    </span>
-                    {plan.badge && (
-                      <span className="flex h-[22px] items-center gap-1.5 rounded-full bg-[#272729] pr-3 pl-2 text-[11px] font-medium tracking-[0.02em] text-white uppercase shadow-[0_0_0_1.5px_rgba(0,0,0,0.25),3px_6px_12px_rgba(0,0,0,0.6)]">
-                        <span
-                          className="h-3 w-3 bg-white"
-                          style={{
-                            maskImage: "url(/assets/icon-star.svg)",
-                            WebkitMaskImage: "url(/assets/icon-star.svg)",
-                            maskSize: "contain",
-                            WebkitMaskSize: "contain",
-                            maskRepeat: "no-repeat",
-                            WebkitMaskRepeat: "no-repeat",
-                            maskPosition: "center",
-                            WebkitMaskPosition: "center",
-                          }}
-                        />
-                        {plan.badge}
-                      </span>
-                    )}
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-xl font-semibold tracking-[-0.01em] text-[#f6f8fa]">
-                      {plan.name}
-                    </h3>
-                    <p className="min-h-11 text-[14.5px] leading-[1.5] text-[#858585]">
-                      {plan.who}
-                    </p>
-                  </div>
-                </div>
+              <Glyph name={plan.glyph} />
 
-                <div className="relative flex flex-col gap-2">
-                  <div className="flex min-h-12 items-baseline gap-1.5">
-                    <span
-                      className={cn(
-                        "font-medium tracking-[-0.015em] tabular-nums",
-                        plan.featured ? "text-[40px]" : "text-[32px]",
-                      )}
-                    >
+              <div className="flex flex-col gap-2">
+                <h3 className="text-[26px] leading-[1.15] font-medium tracking-[-0.015em] text-white">
+                  {plan.name}
+                </h3>
+                <p className="m-0 text-[14.5px] leading-[1.45] text-[#9a9a9f]">
+                  {plan.who}
+                </p>
+              </div>
+
+              {/* Price sits between two hairlines, or the CTA words stand in
+                  for it on the plan that is quoted on a call. */}
+              <div className="flex min-h-[60px] items-center border-y border-hairline py-3">
+                {plan.price ? (
+                  <p className="m-0 flex items-baseline gap-1.5">
+                    <span className="text-[34px] leading-none font-medium tracking-[-0.02em] text-white">
                       {plan.price}
                     </span>
-                    <span className="text-[17px] font-medium text-[#858585]">
-                      {plan.unit}
-                    </span>
-                  </div>
-                  <p className="min-h-10 text-[13.5px] leading-[1.45] text-[#858585]">
-                    {plan.terms}
+                    <span className="text-[13.5px] text-[#9a9a9f]">{plan.unit}</span>
                   </p>
-                </div>
-
-                <a
-                  href={plan.href}
-                  className={plan.featured ? CTA_SOLID : CTA_GHOST}
-                >
-                  {plan.cta}
-                </a>
-
-                <div className="flex items-center gap-2.5">
-                  <span className="h-[1.5px] flex-1 bg-[#141414] shadow-[0_1px_1px_rgba(255,255,255,0.11)]" />
-                  <span className="text-xs font-semibold tracking-[-0.01em] text-white/30 uppercase">
-                    {plan.listLabel}
-                  </span>
-                  <span className="h-[1.5px] flex-1 bg-[#141414] shadow-[0_1px_1px_rgba(255,255,255,0.11)]" />
-                </div>
-
-                <ul className="flex list-none flex-col gap-[18px] p-0">
-                  {plan.features.map((feat) => (
-                    <li
-                      key={feat}
-                      className="flex items-start gap-3 text-[15.5px] leading-[1.3] font-medium tracking-[-0.01em] text-white"
-                    >
-                      <span
-                        className="h-5 w-5 flex-none bg-[#737378]"
-                        style={{
-                          maskImage: "url(/assets/icon-check.svg)",
-                          WebkitMaskImage: "url(/assets/icon-check.svg)",
-                          maskSize: "contain",
-                          WebkitMaskSize: "contain",
-                          maskRepeat: "no-repeat",
-                          WebkitMaskRepeat: "no-repeat",
-                          maskPosition: "center",
-                          WebkitMaskPosition: "center",
-                        }}
-                      />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
+                ) : (
+                  <p className="m-0 text-[26px] leading-none font-medium tracking-[-0.015em] text-white">
+                    {plan.cta}
+                  </p>
+                )}
               </div>
-            </div>
+
+              <p className="m-0 text-[14.5px] leading-[1.55] text-[#9a9a9f]">
+                {plan.blurb}
+              </p>
+
+              <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
+                {plan.features.map((feat) => (
+                  <li
+                    key={feat}
+                    className="flex items-start gap-3 text-[14.5px] leading-[1.45] text-[#dcdcdf]"
+                  >
+                    <span className="mt-[7px] h-[5px] w-[5px] flex-none bg-[#7d7d82]" />
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a href={plan.href} className={`${CTA} mt-auto`}>
+                {plan.cta}
+              </a>
+            </article>
           </Reveal>
         ))}
       </div>
@@ -174,7 +151,7 @@ export function Pricing() {
           left for the buyer to ask about on the call. */}
       <Reveal variant="fade" delay={0.12}>
         <p className="mt-7 text-center text-sm leading-[1.6] text-muted-foreground">
-          14-day guarantee on self-serve. Banned hosted accounts replaced free.
+          Ten-account minimum on hosted slots. Banned accounts replaced free.
           You own the accounts and the content.
         </p>
       </Reveal>

@@ -9,50 +9,51 @@ export const hero = {
   audience:
     "For brands and agencies that need distribution without a creator team.",
   payoff: "30 accounts posting daily. Millions of views. No creator payroll.",
-  // TODO: point "Start creating" at the self-serve signup once it exists;
-  // until then it lands on pricing, where the self-serve plan starts.
-  primary: { label: "Start creating", href: "#pricing" },
-  secondary: { label: "Book a call", href: "#book" },
+  // Managed is the flagship, so the call leads. Buying accounts is the
+  // self-serve path and stays available beside it and in the header.
+  book: { label: "Book a call", href: "#book" },
+  buy: { label: "Buy accounts", href: "#pricing" },
   // The reel is a carousel of personas, switched by the avatars beneath it.
   // Jake's view counts are the figures previously published on doublespeed.ai
   // (the fourth is their mean). Engagement counts and the other two personas
   // are the same kind of figures the terminal footage shows.
-  // TODO: replace every figure below the view counts with real numbers.
   personas: [
     {
       id: 1,
       handle: "@jake.rivera",
       name: "Jake Rivera",
       designation: "Lifestyle · AI persona",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=facearea&facepad=2.5&w=200&h=200&q=80",
+      avatar: "/avatars/jake.jpg",
       reel: [
         {
-          poster: "/grid/7.jpg",
+          poster: "/posts/post-01.jpg",
           stat: "312K",
           likes: "12.4K",
           comments: "187",
           shares: "402",
         },
         {
-          poster: "/grid/12.jpg",
+          poster: "/posts/post-02.jpg",
           stat: "142K",
           likes: "5.8K",
           comments: "94",
           shares: "176",
         },
         {
-          poster: "/grid/21.jpg",
+          poster: "/posts/post-07.jpg",
           stat: "78K",
           likes: "3.1K",
           comments: "51",
           shares: "88",
         },
         {
-          poster: "/grid/28.jpg",
-          stat: "177K avg",
-          likes: "7.1K",
-          comments: "110",
-          shares: "222",
+          poster: "/posts/winner-6.jpg",
+          // TODO: real figure. The three above are the counts doublespeed
+          // published for this persona; this fourth post needs its own.
+          stat: "204K",
+          likes: "8.6K",
+          comments: "131",
+          shares: "265",
         },
       ],
     },
@@ -61,31 +62,31 @@ export const hero = {
       handle: "@fit.marcus",
       name: "Marcus Hale",
       designation: "Fitness · 142K monthly views",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=facearea&facepad=2.5&w=200&h=200&q=80",
+      avatar: "/avatars/marcus.jpg",
       reel: [
         {
-          poster: "/grid/3.jpg",
+          poster: "/posts/post-05.jpg",
           stat: "124K",
           likes: "5.1K",
           comments: "43",
           shares: "89",
         },
         {
-          poster: "/grid/9.jpg",
+          poster: "/posts/post-06.jpg",
           stat: "86K",
           likes: "3.2K",
           comments: "27",
           shares: "61",
         },
         {
-          poster: "/grid/15.jpg",
+          poster: "/posts/post-09.jpg",
           stat: "212K",
           likes: "9.4K",
           comments: "88",
           shares: "154",
         },
         {
-          poster: "/grid/24.jpg",
+          poster: "/posts/winner-1.jpg",
           stat: "158K",
           likes: "6.7K",
           comments: "62",
@@ -98,31 +99,31 @@ export const hero = {
       handle: "@style.jo",
       name: "Jo Lindqvist",
       designation: "Fashion · 210K monthly views",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=facearea&facepad=2.5&w=200&h=200&q=80",
+      avatar: "/avatars/jo.jpg",
       reel: [
         {
-          poster: "/grid/31.jpg",
+          poster: "/posts/post-08.jpg",
           stat: "96K",
           likes: "4.2K",
           comments: "38",
           shares: "71",
         },
         {
-          poster: "/grid/33.jpg",
+          poster: "/posts/post-03.jpg",
           stat: "310K",
           likes: "13.1K",
           comments: "204",
           shares: "388",
         },
         {
-          poster: "/grid/36.jpg",
+          poster: "/posts/winner-2.jpg",
           stat: "54K",
           likes: "2.4K",
           comments: "19",
           shares: "43",
         },
         {
-          poster: "/grid/40.jpg",
+          poster: "/posts/winner-3.jpg",
           stat: "131K",
           likes: "5.6K",
           comments: "47",
@@ -131,8 +132,9 @@ export const hero = {
       ],
     },
   ],
-  caption:
-    "@jake.rivera, AI persona. 312K, 142K and 78K views in the last 30 days.",
+  // From case study 01 on the case-studies index: an oral care brand,
+  // 30 accounts, 24M views in the first four weeks.
+  proof: { value: "24M", label: "views in 4 weeks for an oral care brand" },
 };
 
 export type PressItem = {
@@ -212,13 +214,49 @@ export const whatYouGet = [
   },
 ];
 
+/**
+ * Every real post image bundled with the site. The niche wall cycles
+ * through these, so nothing on the page is stock or placeholder art.
+ */
+export const gridPosters = [
+  "/posts/post-01.jpg",
+  "/posts/post-02.jpg",
+  "/posts/post-03.jpg",
+  "/posts/post-04.jpg",
+  "/posts/post-05.jpg",
+  "/posts/post-06.jpg",
+  "/posts/post-07.jpg",
+  "/posts/post-08.jpg",
+  "/posts/post-09.jpg",
+  "/posts/queued-01.jpg",
+  "/posts/queued-02.jpg",
+  "/posts/queued-03.jpg",
+  "/posts/queued-04.jpg",
+  "/posts/queued-05.jpg",
+  "/posts/queued-06.jpg",
+  "/posts/template-01.jpg",
+  "/posts/template-02.jpg",
+  "/posts/template-03.jpg",
+  "/posts/template-04.jpg",
+  "/posts/template-05.jpg",
+  "/posts/template-06.jpg",
+  "/posts/template-07.jpg",
+  "/posts/template-08.jpg",
+  "/posts/winner-1.jpg",
+  "/posts/winner-2.jpg",
+  "/posts/winner-3.jpg",
+  "/posts/winner-4.jpg",
+  "/posts/winner-5.jpg",
+  "/posts/winner-6.jpg",
+];
+
 /** Niche and monthly views per persona, as drawn in the wireframe. */
 export const niches = [
-  { face: "/grid/3.jpg", niche: "Fitness", views: "142K/mo" },
-  { face: "/grid/9.jpg", niche: "Med", views: "96K/mo" },
-  { face: "/grid/15.jpg", niche: "Fashion", views: "210K/mo" },
-  { face: "/grid/24.jpg", niche: "Food", views: "74K/mo" },
-  { face: "/grid/31.jpg", niche: "Tech", views: "128K/mo" },
+  { face: "/posts/winner-6.jpg", niche: "Fitness", views: "142K/mo" },
+  { face: "/posts/post-03.jpg", niche: "Med", views: "96K/mo" },
+  { face: "/posts/post-08.jpg", niche: "Fashion", views: "210K/mo" },
+  { face: "/posts/post-07.jpg", niche: "Food", views: "74K/mo" },
+  { face: "/posts/post-06.jpg", niche: "Tech", views: "128K/mo" },
 ];
 
 export const closing = {

@@ -55,72 +55,71 @@ export type Plan = {
   name: string;
   badge?: string;
   glyph: "phone" | "agent" | "team";
+  /** Who the plan is for, one line under the name. */
   who: string;
-  price: string;
-  unit: string;
+  /** Omitted on Managed, where the CTA stands in for the price. */
+  price?: string;
+  unit?: string;
+  /** What the plan actually is, in a sentence or two. */
+  blurb: string;
   cta: string;
   /** Where this plan's CTA goes. */
   href: string;
-  /** The buying unit, spelled out on the card instead of only in the FAQ. */
-  terms: string;
   featured: boolean;
-  listLabel: string;
   features: string[];
 };
 
 export const plans: Plan[] = [
   {
-    name: "Content Automation",
-    glyph: "agent",
-    who: "Self-serve. You bring the accounts, we make the content.",
-    price: "from $20",
-    unit: "/mo",
-    cta: "Start creating",
+    name: "Hosted Account Slot",
+    glyph: "phone",
+    who: "Best for teams running their own content",
+    price: "$150",
+    unit: "/account per month",
+    blurb:
+      "A dedicated slot on a real US device, so one social profile posts consistently without you managing hardware. You bring the content.",
+    cta: "Get started",
     href: "#book",
-    terms: "1 credit = 1 comment. 15 credits = 1 video.",
     featured: false,
-    listLabel: "What you get",
     features: [
-      "Bulk creation suite: image, video and audio models",
-      "Comment seeding for any TikTok, IG or YouTube post",
-      "Workflow builder for repeatable content pipelines",
-      "Credits roll over while your plan is active",
+      "US device traffic and posting",
+      "Human-like instrumentation",
+      "In-house warming algorithm",
+      "Bulk creation suite, image, video, and audio models",
     ],
   },
   {
-    name: "Hosted Accounts",
-    badge: "Most popular",
-    glyph: "phone",
-    who: "Fastest route to real reach.",
-    price: "$4,500",
-    unit: "/mo, 30 accounts",
-    cta: "Buy accounts",
+    name: "Content Agent",
+    badge: "Research preview",
+    glyph: "agent",
+    who: "Scaling consumer apps, e-commerce brands",
+    price: "$250",
+    unit: "/account per month",
+    blurb:
+      "An autonomous agent plans, creates, and posts on your hosted accounts. In research preview: book a call to get approved for access.",
+    cta: "Book a call",
     href: "#book",
-    terms: "Billed monthly, cancel anytime. Banned accounts replaced free.",
     featured: true,
-    listLabel: "Everything in Content Automation, plus",
     features: [
-      "30 dedicated slots on real US devices",
-      "US carrier traffic and residential IPs",
-      "In-house warming algorithm before a post goes out",
-      "Human review on the final 5% of content",
+      "Everything in Hosted Account Slot",
+      "Content generated and scheduled for you",
+      "Drafts land in a review link for approval",
+      "Learns from what performs on your accounts",
     ],
   },
   {
     name: "Managed Service",
     glyph: "team",
-    who: "Dedicated strategist and team.",
-    price: "from $13,500",
-    unit: "/mo",
+    who: "For teams ready to scale the whole operation",
+    blurb:
+      "Done for you. A dedicated content strategist and team of human creators plan, iterate, and adapt based on what's working. You review and approve. Everything else is taken care of.",
     cta: "Book a call",
     href: "#book",
-    terms: "Scoped to your volume on the call.",
     featured: false,
-    listLabel: "Everything in Hosted Accounts, plus",
     features: [
-      "Dedicated content strategist",
+      "Dedicated strategist",
       "In-house editing team",
-      "2x daily posting per account",
+      "2x daily posting",
       "Performance and iteration loop",
     ],
   },
@@ -183,9 +182,9 @@ export const faqs: Faq[] = [
     q: "How much does it cost?",
     a: [],
     list: [
-      "Content Automation starts at $20 per month. Self-serve credits for the creation suite: 1 credit is a comment, 15 credits are a video. You bring the accounts.",
-      "Hosted Accounts is $4,500 per month for 30 dedicated slots on real US devices, warmed and human-reviewed. The fastest route to real reach.",
-      "Managed Service starts at $13,500 per month. Done-for-you content operations with a dedicated strategist and creator team, scoped to your volume on the call.",
+      "Hosted Account Slot is $150 per account per month: a dedicated slot on a real US device, warmed before it posts. You bring the content. Ten-account minimum.",
+      "Content Agent is $250 per account per month, in research preview. An autonomous agent plans, creates and posts on your hosted accounts, with drafts landing in a review link for approval.",
+      "Managed Service is scoped on a call. A dedicated strategist and in-house creator team run the whole operation and you review what goes out.",
     ],
   },
 ];

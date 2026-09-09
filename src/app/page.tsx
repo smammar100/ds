@@ -31,7 +31,7 @@ export default function Home() {
         <PressMarquee />
         <V2RealPhones />
         <V2WhatYouGet />
-        <NicheGrid reel cta={{ label: "Start creating", href: "#pricing" }} />
+        <NicheGrid reel cta={{ label: "Buy accounts", href: "#pricing" }} />
         <CaseStudiesGallery />
         <Pricing />
         <V2Faq />

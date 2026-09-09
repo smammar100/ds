@@ -160,7 +160,7 @@ export function BookCall({ stats = DEFAULT_STATS }: { stats?: Stat[] }) {
                 (i > 0 ? " border-t border-hairline sm:border-t-0 sm:border-l" : "")
               }
             >
-              <dd className="font-display m-0 text-[30px] leading-none tracking-[-0.02em] tabular-nums">
+              <dd className="font-display m-0 text-[30px] leading-none tracking-[-0.02em]">
                 {stat.value}
               </dd>
               <dt className="text-[13px] leading-[1.45] text-muted-foreground">

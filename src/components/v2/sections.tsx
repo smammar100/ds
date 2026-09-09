@@ -65,10 +65,10 @@ export function V2Header() {
             </a>
           ))}
           <a
-            href={hero.primary.href}
+            href={hero.buy.href}
             className="flex h-9 items-center rounded-md bg-[#ededed] px-4 text-[13.5px] font-medium whitespace-nowrap text-black transition-colors hover:bg-white"
           >
-            {hero.primary.label}
+            {hero.buy.label}
           </a>
         </nav>
       </div>
@@ -97,11 +97,11 @@ export function V2Hero() {
         </Reveal>
         <Reveal variant="rise" delay={0.14}>
           <div className="flex flex-col gap-2.5 pt-2 min-[360px]:flex-row">
-            <a href={hero.primary.href} className={BTN_SOLID}>
-              {hero.primary.label}
+            <a href={hero.book.href} className={BTN_SOLID}>
+              {hero.book.label}
             </a>
-            <a href={hero.secondary.href} className={BTN_GHOST}>
-              {hero.secondary.label}
+            <a href={hero.buy.href} className={BTN_GHOST}>
+              {hero.buy.label}
             </a>
           </div>
         </Reveal>
@@ -232,11 +232,11 @@ export function V2Closing() {
             {closing.body}
           </p>
           <div className="flex flex-col gap-2.5 pt-2 min-[360px]:flex-row">
-            <a href={hero.primary.href} className={BTN_SOLID}>
-              {hero.primary.label}
+            <a href={hero.book.href} className={BTN_SOLID}>
+              {hero.book.label}
             </a>
-            <a href={hero.secondary.href} className={BTN_GHOST}>
-              {hero.secondary.label}
+            <a href={hero.buy.href} className={BTN_GHOST}>
+              {hero.buy.label}
             </a>
           </div>
         </Reveal>

@@ -187,7 +187,7 @@ export function FleetSignal() {
         viewBox={`0 0 ${W} ${H}`}
         className="h-full w-full"
         aria-hidden
-        style={{ fontFamily: "var(--font-geist-mono), ui-monospace, monospace" }}
+        style={{ fontFamily: "var(--font-mono-face), ui-monospace, monospace" }}
       >
         <defs>
           <pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse">
