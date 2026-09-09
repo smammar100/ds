@@ -62,17 +62,6 @@ export function HeroReel() {
         ))}
       </div>
 
-      {/* One dated receipt under the grid, so the proof has a client outcome
-          attached to it and not just per-post view counts. */}
-      <p className="m-0 flex items-baseline gap-2">
-        <span className="font-display text-[30px] leading-none tracking-[-0.01em]">
-          {hero.proof.value}
-        </span>
-        <span className="text-[14px] leading-[1.5] text-muted-foreground">
-          {hero.proof.label}
-        </span>
-      </p>
-
       <AvatarGroup
         size="lg"
         items={hero.personas.map((p) => ({

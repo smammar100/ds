@@ -132,9 +132,6 @@ export const hero = {
       ],
     },
   ],
-  // From case study 01 on the case-studies index: an oral care brand,
-  // 30 accounts, 24M views in the first four weeks.
-  proof: { value: "24M", label: "views in 4 weeks for an oral care brand" },
 };
 
 export type PressItem = {
